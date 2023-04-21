@@ -46,10 +46,6 @@ const userSchema = new Schema(
                 ref: 'User'
             }
         ],
-        preferences: {
-            type: Schema.Types.ObjectId,
-            ref: 'Preference'
-        },
         potentialMatches: [
             {
                 type: Schema.Types.ObjectId,

@@ -2,8 +2,9 @@
     {
         "username": "austin",
         "password": "1324",
-        "contact": "austin@gmail.com",
+        "email": "austin@gmail.com",
         "matches": [],
-        "petPreferences": ["dog"]
+        "petPreferences": ["dog"],
+        "phoneNumber": "253-867-5309"
     }
 ]
