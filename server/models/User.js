@@ -12,7 +12,7 @@ const userSchema = new Schema(
             required: true
         },
         //some kind of contact email or phone number
-        contact: {
+        email: {
             type: String,
             required: true
         },
@@ -33,7 +33,13 @@ const userSchema = new Schema(
                 type: Schema.Types.ObjectId,
                 ref: 'Message'
             }
-        ]
+        ],
+         phoneNumber: [
+            {
+                type: String,
+                unique: true
+            }
+         ]
     },
     //options
     {
