@@ -12,9 +12,14 @@ const userSchema = new Schema(
             required: true
         },
         //some kind of contact email or phone number
-        contact: {
+        email: {
             type: String,
-            required: true
+            required: true,
+            match: [/.+@.+\.(com|org|net|edu)/, "Please enter a valid email"]
+        },
+        verified: {
+            type: Boolean,
+            
         },
         matches: [
             {
@@ -28,12 +33,14 @@ const userSchema = new Schema(
                 default: 'all'
             }
         ],
-        messages: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: 'Message'
+        createdAt: {
+            type: Date,
+            default: Date.now,
+            //just basic unformatted request
+            get: timestamp => {
+                return timestamp;
             }
-        ]
+        }
     },
     //options
     {
