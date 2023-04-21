@@ -2,35 +2,54 @@ const { Schema, model } = require('mongoose');
 
 const userSchema = new Schema(
     {
-        username: {
-            type: String,
-            required: true,
-            unique: true
+        //login details
+        name: {
+            first: String,
+            last: String
         },
         password: {
             type: String,
             required: true
         },
-        //some kind of contact email or phone number
         email: {
             type: String,
             required: true,
             match: [/.+@.+\.(com|org|net|edu)/, "Please enter a valid email"]
         },
+        phoneNumber: {
+            type: String,
+        },
+        //extra
+        bio: {
+            type: String,
+            default: ''
+        },
         verified: {
             type: Boolean,
-            
+            default: false
         },
+        likes: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'User'
+            }
+        ],
+        notInterested: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'User'
+            }
+        ],
         matches: [
             {
                 type: Schema.Types.ObjectId,
                 ref: 'User'
             }
         ],
-        petPreferences: [
+        preferences: [
             {
-                type: String,
-                default: 'all'
+                type: Schema.Types.ObjectId,
+                ref: 'Preference'
             }
         ],
         createdAt: {
@@ -44,7 +63,13 @@ const userSchema = new Schema(
     },
     //options
     {
-
+        virtuals: {
+            fullName: {
+                get() {
+                    return `${this.name.first} ${this.name.last}`;
+                }
+            }
+        }
     }
 );
 
