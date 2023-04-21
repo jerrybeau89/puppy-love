@@ -18,15 +18,15 @@ const userSchema = new Schema(
         },
         phoneNumber: {
             type: String,
+            //phone format use either / or - for 
+            //areaCode 7digitNumber
+            match: [/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/, "Please enter a valid phone number"]
         },
         //extra
-        bio: {
+        gender: {
             type: String,
-            default: ''
-        },
-        verified: {
-            type: Boolean,
-            default: false
+            enum: ['male', 'female', 'nonbinary', 'none'],
+            default: 'none'
         },
         likes: [
             {
@@ -34,7 +34,7 @@ const userSchema = new Schema(
                 ref: 'User'
             }
         ],
-        notInterested: [
+        rejects: [
             {
                 type: Schema.Types.ObjectId,
                 ref: 'User'
@@ -46,10 +46,14 @@ const userSchema = new Schema(
                 ref: 'User'
             }
         ],
-        preferences: [
+        preferences: {
+            type: Schema.Types.ObjectId,
+            ref: 'Preference'
+        },
+        potentialMatches: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'Preference'
+                ref: 'User'
             }
         ],
         createdAt: {
