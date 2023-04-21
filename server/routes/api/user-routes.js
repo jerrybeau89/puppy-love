@@ -16,6 +16,7 @@ router.route('/')
 router.route('/:id')
     .get(getSingleUser);
 
+
 router.route('/login')
     .post(login);
 
