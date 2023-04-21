@@ -15,6 +15,10 @@ const messageSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: 'User',
             required: true
+        },
+        timestamp: {
+            type: Date,
+            default: Date.now
         }
     }
 );

@@ -2,48 +2,74 @@ const { Schema, model } = require('mongoose');
 
 const userSchema = new Schema(
     {
-        username: {
-            type: String,
-            required: true,
-            unique: true
+        //login details
+        name: {
+            first: String,
+            last: String
         },
         password: {
             type: String,
             required: true
         },
-        //some kind of contact email or phone number
         email: {
             type: String,
-            required: true
+            required: true,
+            match: [/.+@.+\.(com|org|net|edu)/, "Please enter a valid email"]
         },
+        phoneNumber: {
+            type: String,
+            //phone format use either / or - for 
+            //areaCode 7digitNumber
+            match: [/^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/, "Please enter a valid phone number"]
+        },
+        //extra
+        gender: {
+            type: String,
+            enum: ['male', 'female', 'nonbinary', 'none'],
+            default: 'none'
+        },
+        likes: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'User'
+            }
+        ],
+        rejects: [
+            {
+                type: Schema.Types.ObjectId,
+                ref: 'User'
+            }
+        ],
         matches: [
             {
                 type: Schema.Types.ObjectId,
                 ref: 'User'
             }
         ],
-        petPreferences: [
-            {
-                type: String,
-                default: 'all'
-            }
-        ],
-        messages: [
+        potentialMatches: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'Message'
+                ref: 'User'
             }
         ],
-         phoneNumber: [
-            {
-                type: String,
-                unique: true
+        createdAt: {
+            type: Date,
+            default: Date.now,
+            //just basic unformatted request
+            get: timestamp => {
+                return timestamp;
             }
-         ]
+        }
     },
     //options
     {
-
+        virtuals: {
+            fullName: {
+                get() {
+                    return `${this.name.first} ${this.name.last}`;
+                }
+            }
+        }
     }
 );
 
