@@ -3,9 +3,17 @@ const { Schema, model } = require('mongoose');
 const userSchema = new Schema(
     {
         //login details
+        id: {
+            type: Number,
+            required: true, 
+        },
         name: {
             first: String,
             last: String
+        },
+        username: {
+            type: String,
+            required: true,
         },
         password: {
             type: String,
@@ -15,6 +23,10 @@ const userSchema = new Schema(
             type: String,
             required: true,
             match: [/.+@.+\.(com|org|net|edu)/, "Please enter a valid email"]
+        },
+        dob: {
+            type: Number,
+            required: true
         },
         phoneNumber: {
             type: String,
@@ -28,13 +40,18 @@ const userSchema = new Schema(
             enum: ['male', 'female', 'nonbinary', 'none'],
             default: 'none'
         },
+        pet: {
+            type: String,
+            enum: ['dog', 'cat', 'reptile', 'spider', 'snake', 'fish', 'bird', 'other'],
+            required: true,
+        },
         likes: [
             {
                 type: Schema.Types.ObjectId,
                 ref: 'User'
             }
         ],
-        rejects: [
+        dislikes: [
             {
                 type: Schema.Types.ObjectId,
                 ref: 'User'

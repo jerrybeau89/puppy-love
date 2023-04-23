@@ -9,7 +9,7 @@ const preferenceSchema = new Schema(
         petPreferences: [
             {
                 type: String,
-                enum: ['dog', 'cat', 'reptile', 'spider', 'snake', 'fish', 'bird', 'any'],
+                enum: ['dog', 'cat', 'reptile', 'spider', 'snake', 'fish', 'bird', 'other','any'],
                 default: 'any'
             }
         ],
