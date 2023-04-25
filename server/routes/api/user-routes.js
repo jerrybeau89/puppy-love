@@ -34,9 +34,6 @@ router.route('/:id')
 router.route('/:id/matches')
     .get(getUserMatches);
 
-router.route('/:id/match/messages')
-    .get(getMatch)
-    .get(getMatchMessages);
 
 router.route('/:id/match/messages')
     .get(getMatch)
