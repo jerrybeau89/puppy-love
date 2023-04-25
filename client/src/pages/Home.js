@@ -1,21 +1,25 @@
-
-import Nav from '../components/Nav'
+import React from "react";
+import '../../src/index.css'
 const Home = () => {
 
-    const authToken = true
-    const handleClick = () => {
-        console.log('click')
-    }
     return (
-        <div className = "background">
-            <Nav />
-            <div className="home">
-                <h1> Pawsome Love: Connect with Pet-lovers Using Adorable Pet Photos on Our Dating App </h1>
-                <button className="create-button" onClick={handleClick}>
-                    {authToken ? 'Signout' : 'Signup'}
-                </button>
-            </div>
+        <div>
+        <nav>
+          <div className="nav-left">
+            <h1>Puppy-Luv</h1>
+          </div>
+          <div className="nav-right">
+            <button className="btn">Login/Signup</button>
+          </div>
+        </nav>
+        <div className="main">
+          <h2>Pawsome Love: Connect with Pet-lovers Using Adorable Pet Photos on Our Dating App</h2>
+          <p>Find your perfect match who loves pets just as much as you do.</p>
+          <button className="btn">Get started</button>
         </div>
-    )
-}
-export default Home
+      </div>
+    );
+  }
+  
+
+export default Home;
