@@ -1,6 +1,11 @@
 const { User } = require('../models');
 
 module.exports = {
+
+    async getUsers(req, res) {
+        const users = await User.find({}).select("-__v");
+        res.json(users);
+    },
     async createUser({ body }, res) {
         const user = await User.create(body);
     },
@@ -9,7 +14,7 @@ module.exports = {
         const user = await User.findById(body.id);
     },
 
-    async getUserProfile({}, res) {
+    async getUserProfile({ params }, res) {
         const user = await User.findOne({ _id: params.id });
 
         if(!user){
@@ -43,8 +48,22 @@ module.exports = {
         const user = await User.findOneAndUpdate({});
     },
 
-    async getMatchField({}, res) {
-        const user = await User.find({})
+    async getMatchField(req, res) {
+        try{
+            await User.find({username: { $not: { $eq: req.params.username}}})
+            .select('username name gender pet')
+            //sorts descendingly
+            .sort({ _id: 1 })
+            //returns the users
+            .then(dbUserData => res.json(dbUserData))
+            .catch(err => {
+                console.log(err);
+                res.status(500).json(err);
+            });;
+
+        } catch (err){
+            res.json(err);
+        }
     },
 
     async getPotentialMatch({}, res) {

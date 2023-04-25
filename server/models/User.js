@@ -8,8 +8,8 @@ const userSchema = new Schema(
             required: true, 
         },
         name: {
-            first: String,
-            last: String
+            type: String,
+            required: false
         },
         username: {
             type: String,
@@ -24,10 +24,10 @@ const userSchema = new Schema(
             required: true,
             match: [/.+@.+\.(com|org|net|edu)/, "Please enter a valid email"]
         },
-        dob: {
-            type: Number,
-            required: true
-        },
+        // dob: {
+        //     type: Number,
+        //     required: true
+        // },
         phoneNumber: {
             type: String,
             //phone format use either / or - for 
@@ -40,11 +40,20 @@ const userSchema = new Schema(
             enum: ['male', 'female', 'nonbinary', 'none'],
             default: 'none'
         },
-        pet: {
-            type: String,
-            enum: ['dog', 'cat', 'reptile', 'spider', 'snake', 'fish', 'bird', 'other'],
-            required: true,
-        },
+        pet: [
+            {
+                type: String,
+                enum: ['dog', 'cat', 'reptile', 'spider', 'snake', 'fish', 'bird', 'other'],
+                required: true,
+            }
+        ],
+        petPreferences: [
+            {
+                type: String,
+                enum: ['dog', 'cat', 'reptile', 'spider', 'snake', 'fish', 'bird', 'other'],
+                required: true,
+            }
+        ],
         likes: [
             {
                 type: Schema.Types.ObjectId,
@@ -80,13 +89,7 @@ const userSchema = new Schema(
     },
     //options
     {
-        virtuals: {
-            fullName: {
-                get() {
-                    return `${this.name.first} ${this.name.last}`;
-                }
-            }
-        }
+        
     }
 );
 
