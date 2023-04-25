@@ -35,13 +35,13 @@ module.exports = {
         const user = await User;
     },
 
-    async getUserPreferences({}, res){
-        const user = await User.find({});
-    },
+    // async getUserPreferences({}, res){
+    //     const user = await User.find({});
+    // },
 
-    async setUserPreferences({}, res){
-        const user = await User.findOneAndUpdate({});
-    },
+    // async setUserPreferences({}, res){
+    //     const user = await User.findOneAndUpdate({});
+    // },
 
     async getMatchField({}, res) {
         const user = await User.find({})
@@ -55,13 +55,13 @@ module.exports = {
         const user = await User.create({});
     }, 
 
-    async getFilterPreferences({}, res) {
-        const user = await User;
-    },
+    // async getFilterPreferences({}, res) {
+    //     const user = await User;
+    // },
 
-    async setFilterPreferences({}, res) {
-        const user = await User;
-    }
+    // async setFilterPreferences({}, res) {
+    //     const user = await User;
+    // }
 }
 
  
