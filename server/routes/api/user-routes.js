@@ -4,6 +4,8 @@ const {
     createUser,
     login,
     getUsers,
+    like,
+    dislike,
     getUserProfile,
     getMatchMessages,
     getUserMatches,
@@ -47,6 +49,12 @@ router.route('/login')
 
 router.route('/field/:username')
     .get(getMatchField);
+
+router.route('/like')
+    .post(like);
+
+router.route('/dislike')
+    .post(dislike);
 
 // router.route('/field/potential')
 //     .get(getMatchField)

@@ -3,10 +3,6 @@ const { Schema, model } = require('mongoose');
 const userSchema = new Schema(
     {
         //login details
-        id: {
-            type: Number,
-            required: true, 
-        },
         name: {
             type: String,
             required: false
@@ -24,10 +20,18 @@ const userSchema = new Schema(
             required: true,
             match: [/.+@.+\.(com|org|net|edu)/, "Please enter a valid email"]
         },
-        // dob: {
-        //     type: Number,
-        //     required: true
-        // },
+        dob: {
+            type: Date,
+            required: true,
+            validate: {
+                validator: function(value) {
+                    let eighteenYearsAgo = new Date();
+                    eighteenYearsAgo.setFullYear(eighteenYearsAgo.getFullYear() - 18);
+                    return value < eighteenYearsAgo;
+                },
+                message: 'You must be over 18 years old to use this app'
+            }
+        },
         phoneNumber: {
             type: String,
             //phone format use either / or - for 
