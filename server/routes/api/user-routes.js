@@ -10,11 +10,11 @@ const {
     getMatch,
     getMatchField, 
     getPotentialMatch,
-    getUserPreferences,
-    setUserPreferences,
+    // getUserPreferences,
+    // setUserPreferences,
     createMessage,
-    getFilterPreferences,
-    setFilterPreferences
+    // getFilterPreferences,
+    // setFilterPreferences
 
 } = require('../../controllers/user-controller');
 
@@ -55,16 +55,16 @@ router.route('/field/potential/matched')
     .get(getPotentialMatch)
     .post(userMatched);
 
-router.route('/:id/preferences')
-    .get(getUserPreferences);
+// router.route('/:id/preferences')
+//     .get(getUserPreferences);
 
-router.route(':id/preferences/set')
-    .get(getUserPreferences)
-    .post(setUserPreferences);
+// router.route(':id/preferences/set')
+//     .get(getUserPreferences)
+//     .post(setUserPreferences);
 
-router.route('/filter')
-    .get(getFilterPreferences)
-    .post(setFilterPreferences)
+// router.route('/filter')
+//     .get(getFilterPreferences)
+//     .post(setFilterPreferences)
 
 
 module.exports = router;

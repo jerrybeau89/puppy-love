@@ -24,9 +24,10 @@ const userSchema = new Schema(
             required: true,
             match: [/.+@.+\.(com|org|net|edu)/, "Please enter a valid email"]
         },
-        dob: {
+        age: {
             type: Number,
-            required: true
+            required: true,
+            min: 18
         },
         phoneNumber: {
             type: String,
