@@ -13,11 +13,11 @@ const {
     getMatch,
     getMatchField, 
     getPotentialMatch,
-    getUserPreferences,
-    setUserPreferences,
+    // getUserPreferences,
+    // setUserPreferences,
     createMessage,
-    getFilterPreferences,
-    setFilterPreferences
+    // getFilterPreferences,
+    // setFilterPreferences
 
 } = require('../../controllers/user-controller');
 
@@ -55,15 +55,6 @@ router.route('/like')
 
 router.route('/dislike')
     .post(dislike);
-
-// router.route('/field/potential')
-//     .get(getMatchField)
-//     .get(getPotentialMatch);
-
-// router.route('/field/potential/matched')
-//     .get(getMatchField)
-//     .get(getPotentialMatch)
-//     .post(userMatched);
 
 // router.route('/:id/preferences')
 //     .get(getUserPreferences);

@@ -88,13 +88,13 @@ module.exports = {
         const user = await User;
     },
 
-    async getUserPreferences({}, res){
-        const user = await User.find({});
-    },
+    // async getUserPreferences({}, res){
+    //     const user = await User.find({});
+    // },
 
-    async setUserPreferences({}, res){
-        const user = await User.findOneAndUpdate({});
-    },
+    // async setUserPreferences({}, res){
+    //     const user = await User.findOneAndUpdate({});
+    // },
 
     //requires the url to be formatted to /api/users/field/:username
     //:username will pass in the user
@@ -128,13 +128,13 @@ module.exports = {
         const user = await User.create({});
     }, 
 
-    async getFilterPreferences({}, res) {
-        const user = await User;
-    },
+    // async getFilterPreferences({}, res) {
+    //     const user = await User;
+    // },
 
-    async setFilterPreferences({}, res) {
-        const user = await User;
-    }
+    // async setFilterPreferences({}, res) {
+    //     const user = await User;
+    // }
 }
 
  
