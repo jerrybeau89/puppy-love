@@ -8,6 +8,7 @@ import {
     createHttpLink,
   } from "@apollo/client";
 
+
   const httpLink = createHttpLink({
     uri: "/graphql",
   });
@@ -17,6 +18,7 @@ import {
     cache: new InMemoryCache(),
   });
   
+
 
 function App() {
     return (

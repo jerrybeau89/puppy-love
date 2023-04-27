@@ -3,13 +3,9 @@ const { Schema, model } = require('mongoose');
 const userSchema = new Schema(
     {
         //login details
-        id: {
-            type: Number,
-            required: true, 
-        },
         name: {
-            first: String,
-            last: String
+            type: String,
+            required: true
         },
         username: {
             type: String,
@@ -24,10 +20,17 @@ const userSchema = new Schema(
             required: true,
             match: [/.+@.+\.(com|org|net|edu)/, "Please enter a valid email"]
         },
-        age: {
-            type: Number,
+        dob: {
+            type: Date,
             required: true,
-            min: 18
+            validate: {
+                validator: function(value) {
+                    let eighteenYearsAgo = new Date();
+                    eighteenYearsAgo.setFullYear(eighteenYearsAgo.getFullYear() - 18);
+                    return value < eighteenYearsAgo;
+                },
+                message: 'You must be over 18 years old to use this app'
+            }
         },
         phoneNumber: {
             type: String,
@@ -41,11 +44,20 @@ const userSchema = new Schema(
             enum: ['male', 'female', 'nonbinary', 'none'],
             default: 'none'
         },
-        pet: {
-            type: String,
-            enum: ['dog', 'cat', 'reptile', 'spider', 'snake', 'fish', 'bird', 'other'],
-            required: true,
-        },
+        pet: [
+            {
+                type: String,
+                enum: ['dog', 'cat', 'reptile', 'spider', 'snake', 'fish', 'bird', 'other'],
+                required: true,
+            }
+        ],
+        petPreferences: [
+            {
+                type: String,
+                enum: ['dog', 'cat', 'reptile', 'spider', 'snake', 'fish', 'bird', 'other'],
+                required: true,
+            }
+        ],
         likes: [
             {
                 type: Schema.Types.ObjectId,
@@ -81,13 +93,7 @@ const userSchema = new Schema(
     },
     //options
     {
-        virtuals: {
-            fullName: {
-                get() {
-                    return `${this.name.first} ${this.name.last}`;
-                }
-            }
-        }
+        
     }
 );
 
