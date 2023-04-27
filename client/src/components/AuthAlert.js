@@ -4,7 +4,7 @@ import * as React from "react";
 import { Box, Alert, IconButton, Text } from "@chakra-ui/react";
 
 export const AuthAlert = ({ setShowAlert, forLogin }) => {
-  return (
+  return 
    
     // <Box
     //   display="flex"
@@ -42,5 +42,4 @@ export const AuthAlert = ({ setShowAlert, forLogin }) => {
     //     </Box>
     //   </Alert>
     // </Box>
-  );
 };

@@ -15,13 +15,14 @@ module.exports = {
     },
 
     async getUserProfile({ params }, res) {
-        const user = await User.findOne({ _id: params.id });
-
-        if(!user){
-            return res.status(400).json({ message: 'Cannot find a user with this id!' });
-        }
-
-        res.json(user);
+        User.findOne({ _id: params.id })
+            .select('-__v')
+            .then(userData => {
+                if(!userData){
+                    return res.status(400).json({ message: 'Cannot find a user with this id!' });
+                }
+                res.json(userData);
+            });
     },
 
     async getUserMatches({}, res) {

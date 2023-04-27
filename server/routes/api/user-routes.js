@@ -32,18 +32,11 @@ router.route('/')
 router.route('/login')
     .post(login);
 
-// router.route('/:id')
-//     .get(getUserProfile);
+router.route('/:id')
+    .get(getUserProfile);
 
 // router.route('/:id/matches')
 //     .get(getUserMatches);
-
-<<<<<<< HEAD
-// router.route('/:id/match/messages')
-//     .get(getMatch)
-//     .get(getMatchMessages);
-=======
->>>>>>> 488ee7ab25dd65f789bb146131c1ce49a9a690d8
 
 // router.route('/:id/match/messages')
 //     .get(getMatch)
