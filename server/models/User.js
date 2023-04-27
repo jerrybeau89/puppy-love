@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const Message = require('./Message');
 
 const userSchema = new Schema(
     {
@@ -72,14 +73,27 @@ const userSchema = new Schema(
         ],
         matches: [
             {
-                type: Schema.Types.ObjectId,
-                ref: 'User'
-            }
+                id:  {
+                    type: Schema.Types.ObjectId,
+                    ref: 'User'
+                },
+                name: {
+                    type: Schema.Types.String,
+                    ref: "User"
+                }
+            },
         ],
         potentialMatches: [
             {
                 type: Schema.Types.ObjectId,
                 ref: 'User'
+            }
+        ],
+        messages: [
+            {
+                type: Array,
+                ref: 'Message',
+                required: true
             }
         ],
         createdAt: {
