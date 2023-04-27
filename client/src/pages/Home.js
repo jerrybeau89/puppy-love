@@ -1,5 +1,7 @@
 import React from "react";
 import '../../src/index.css'
+import Login from "../components/Login";
+import Signup from "../components/Signup";
 const Home = () => {
 
     return (
@@ -9,6 +11,7 @@ const Home = () => {
             <h1>Puppy-Luv</h1>
           </div>
           <div className="nav-right">
+            <Login />
             <button className="btn">Login/Signup</button>
           </div>
         </nav>
