@@ -8,7 +8,8 @@
         "dislikes": [],
         "petPreferences": ["dog"],
         "pet" : ["dog"],
-        "phoneNumber": "253-867-5309"
+        "phoneNumber": "253-867-5309",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "Kevin L",
@@ -19,7 +20,8 @@
         "dislikes": [],
         "petPreferences": ["dog"],
         "pet" : ["dog"],
-        "phoneNumber": "867-530-9000"
+        "phoneNumber": "867-530-9000",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "Twee B",
@@ -30,7 +32,8 @@
         "dislikes": [],
         "petPreferences": ["cat"],
         "pet" : ["cat"],
-        "phoneNumber": "867-530-9001"
+        "phoneNumber": "867-530-9001",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "Beau B",
@@ -41,7 +44,8 @@
         "dislikes": [],
         "petPreferences": ["dog"],
         "pet" : ["dog"],
-        "phoneNumber": "867-530-9002"
+        "phoneNumber": "867-530-9002",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "April L",
@@ -52,7 +56,8 @@
         "dislikes": [],
         "petPreferences": ["cat", "dog"],
         "pet" : ["cat", "dog"],
-        "phoneNumber": "867-530-9003"
+        "phoneNumber": "867-530-9003",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "Ryan R",
@@ -63,7 +68,8 @@
         "dislikes": [],
         "petPreferences": ["fish"],
         "pet" : ["fish"],
-        "phoneNumber": "867-530-9004"
+        "phoneNumber": "867-530-9004",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "Gal G",
@@ -74,7 +80,8 @@
         "dislikes": [],
         "petPreferences": ["snake"],
         "pet" : ["snake"],
-        "phoneNumber": "867-530-9005"
+        "phoneNumber": "867-530-9005",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "Scarlett J",
@@ -85,7 +92,8 @@
         "dislikes": [],
         "petPreferences": ["other"],
         "pet" : ["other"],
-        "phoneNumber": "867-530-9006"
+        "phoneNumber": "867-530-9006",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "Chris E",
@@ -96,7 +104,8 @@
         "dislikes": [],
         "petPreferences": ["spider"],
         "pet" : ["spider"],
-        "phoneNumber": "867-530-9007"
+        "phoneNumber": "867-530-9007",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "Jennifer L",
@@ -107,7 +116,8 @@
         "dislikes": [],
         "petPreferences": ["reptile", "cat"],
         "pet" : ["reptile", "cat"],
-        "phoneNumber": "867-530-9008"
+        "phoneNumber": "867-530-9008",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "Morgan F",
@@ -118,7 +128,8 @@
         "dislikes": [],
         "petPreferences": ["bird"],
         "pet" : ["bird"],
-        "phoneNumber": "867-530-9009"
+        "phoneNumber": "867-530-9009",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "Margot R",
@@ -129,7 +140,8 @@
         "dislikes": [],
         "petPreferences": ["dog", "cat"],
         "pet" : ["dog", "cat"],
-        "phoneNumber": "867-530-9010"
+        "phoneNumber": "867-530-9010",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "Hugh J",
@@ -140,7 +152,8 @@
         "dislikes": [],
         "petPreferences": ["reptile", "snake", "spider"],
         "pet" : ["reptile", "snake", "spider"],
-        "phoneNumber": "867-530-9011"
+        "phoneNumber": "867-530-9011",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "Brittany S",
@@ -151,7 +164,8 @@
         "dislikes": [],
         "petPreferences": ["fish"],
         "pet" : ["fish"],
-        "phoneNumber": "867-530-9012"
+        "phoneNumber": "867-530-9012",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "Sara B",
@@ -162,7 +176,8 @@
         "dislikes": [],
         "petPreferences": ["dog"],
         "pet" : ["dog"],
-        "phoneNumber": "867-530-9013"
+        "phoneNumber": "867-530-9013",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "Paul R",
@@ -173,7 +188,8 @@
         "dislikes": [],
         "petPreferences": ["dog"],
         "pet" : ["dog"],
-        "phoneNumber": "867-530-9014"
+        "phoneNumber": "867-530-9014",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "Michael J",
@@ -184,7 +200,8 @@
         "dislikes": [],
         "petPreferences": ["dog", "bird"],
         "pet" : ["dog", "bird"],
-        "phoneNumber": "867-530-9015"
+        "phoneNumber": "867-530-9015",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "Rachel M",
@@ -195,7 +212,8 @@
         "dislikes": [],
         "petPreferences": ["other"],
         "pet" : ["other"],
-        "phoneNumber": "867-530-9016"
+        "phoneNumber": "867-530-9016",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "Kate B",
@@ -206,7 +224,8 @@
         "dislikes": [],
         "petPreferences": ["fish"],
         "pet" : ["fish"],
-        "phoneNumber": "867-530-9017"
+        "phoneNumber": "867-530-9017",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "Julia R",
@@ -217,7 +236,8 @@
         "dislikes": [],
         "petPreferences": ["cat"],
         "pet" : ["cat"],
-        "phoneNumber": "867-530-9018"
+        "phoneNumber": "867-530-9018",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "Noah M",
@@ -228,7 +248,8 @@
         "dislikes": [],
         "petPreferences": ["reptile", "spider"],
         "pet" : ["reptile", "spider"],
-        "phoneNumber": "867-530-9019"
+        "phoneNumber": "867-530-9019",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "Jimmy F",
@@ -239,7 +260,8 @@
         "dislikes": [],
         "petPreferences": ["snake"],
         "pet" : ["snake"],
-        "phoneNumber": "867-530-9020"
+        "phoneNumber": "867-530-9020",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "Channing T",
@@ -250,7 +272,8 @@
         "dislikes": [],
         "petPreferences": ["other"],
         "pet" : ["other"],
-        "phoneNumber": "867-530-9021"
+        "phoneNumber": "867-530-9021",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "Mila K",
@@ -261,7 +284,8 @@
         "dislikes": [],
         "petPreferences": ["bird"],
         "pet" : ["bird"],
-        "phoneNumber": "867-530-9022"
+        "phoneNumber": "867-530-9022",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "Ashton K",
@@ -272,7 +296,8 @@
         "dislikes": [],
         "petPreferences": ["fish"],
         "pet" : ["fish"],
-        "phoneNumber": "867-530-9023"
+        "phoneNumber": "867-530-9023",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "Cara D",
@@ -283,7 +308,8 @@
         "dislikes": [],
         "petPreferences": ["other"],
         "pet" : ["other"],
-        "phoneNumber": "867-530-9024"
+        "phoneNumber": "867-530-9024",
+        "dob": "1990-02-01T08:00:00.000Z"
     },
     {
         "name": "Charlize T",
@@ -294,6 +320,7 @@
         "dislikes": [],
         "petPreferences": ["reptile", "spider", "snake"],
         "pet" : ["reptile", "spider", "snake"],
-        "phoneNumber": "867-530-9025"
+        "phoneNumber": "867-530-9025",
+        "dob": "1990-02-01T08:00:00.000Z"
     }
 ]
