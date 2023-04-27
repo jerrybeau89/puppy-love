@@ -33,10 +33,6 @@ module.exports = {
         const user = await User.findById(body.id)
     },
 
-    async getMatchMessages({}, res){
-        const user = await User.find({});
-    },
-
     //needs to be given a request body in a json object that contains two things
     //user which is the name of the user
     //like which is the user to be disliked
