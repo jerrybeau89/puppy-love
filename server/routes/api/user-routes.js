@@ -2,7 +2,10 @@ const router = require('express').Router();
 const {
     //fill with userMethods
     createUser,
-    login, 
+    login,
+    getUsers,
+    like,
+    dislike,
     getUserProfile,
     getMatchMessages,
     getUserMatches,
@@ -23,6 +26,7 @@ const { authMiddleware } = require('../../utils/auth');
 
 //routes
 router.route('/')
+    .get(getUsers)
     .post(createUser);
 
 router.route('/login')
@@ -31,26 +35,22 @@ router.route('/login')
 router.route('/:id')
     .get(getUserProfile);
 
-router.route('/:id/matches')
-    .get(getUserMatches);
+// router.route('/:id/matches')
+//     .get(getUserMatches);
 
+// router.route('/:id/match/messages')
+//     .get(getMatch)
+//     .get(getMatchMessages)
+//     .post(createMessage);
 
-router.route('/:id/match/messages')
-    .get(getMatch)
-    .get(getMatchMessages)
-    .post(createMessage);
-
-router.route('/field')
+router.route('/field/:username')
     .get(getMatchField);
 
-router.route('/field/potential')
-    .get(getMatchField)
-    .get(getPotentialMatch);
+router.route('/like')
+    .post(like);
 
-router.route('/field/potential/matched')
-    .get(getMatchField)
-    .get(getPotentialMatch)
-    .post(userMatched);
+router.route('/dislike')
+    .post(dislike);
 
 // router.route('/:id/preferences')
 //     .get(getUserPreferences);

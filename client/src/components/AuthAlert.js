@@ -3,8 +3,10 @@ import * as React from "react";
 
 
 export const AuthAlert = ({ setShowAlert, forLogin }) => {
+
   return (
    <h1>hello</h1>
+
     // <Box
     //   display="flex"
     //   justifyContent="center"
@@ -41,5 +43,5 @@ export const AuthAlert = ({ setShowAlert, forLogin }) => {
     //     </Box>
     //   </Alert>
     // </Box>
-  );
+  )
 };

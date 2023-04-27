@@ -5,7 +5,7 @@ const messageSchema = new Schema(
         content: [{
             from: [{
                 user: {
-                    type: Schema.Types.ObjectId,
+                    type: String,
                     ref: 'User',
                     required: true
                 },
@@ -23,7 +23,7 @@ const messageSchema = new Schema(
             }],
             to: [{
                 user: { 
-                    type: Schema.Types.ObjectId,
+                    type: String,
                     ref: 'User',
                     required: true
                 },
