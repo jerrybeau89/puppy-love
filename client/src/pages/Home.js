@@ -1,23 +1,33 @@
 import React from "react";
 import '../../src/index.css'
+import title from '../img/title.png'
+
 const Home = () => {
 
+
+  
     return (
+      <body>
+        <div class="background">
         <div>
         <nav>
           <div className="nav-left">
             <h1>Puppy-Luv</h1>
           </div>
           <div className="nav-right">
-            <button className="btn">Login/Signup</button>
+            <button className="btn1">Login/Signup</button>
           </div>
         </nav>
+        
         <div className="main">
+        <img src= {title} alt="title"></img>
           <h2>Pawsome Love: Connect with Pet-lovers Using Adorable Pet Photos on Our Dating App</h2>
           <p>Find your perfect match who loves pets just as much as you do.</p>
-          <button className="btn">Get started</button>
+          <button className="btn"><span></span>started</button>
         </div>
       </div>
+      </div>
+      </body>
     );
   }
   
