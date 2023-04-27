@@ -1,7 +1,12 @@
 import React from "react";
 import '../../src/index.css'
+<<<<<<< HEAD
 import title from '../img/title.png'
 
+=======
+import Login from "../components/Login";
+import Signup from "../components/Signup";
+>>>>>>> main
 const Home = () => {
 
 
@@ -15,7 +20,12 @@ const Home = () => {
             <h1>Puppy-Luv</h1>
           </div>
           <div className="nav-right">
+<<<<<<< HEAD
             <button className="btn1">Login/Signup</button>
+=======
+            <Login />
+            <button className="btn">Login/Signup</button>
+>>>>>>> main
           </div>
         </nav>
         
