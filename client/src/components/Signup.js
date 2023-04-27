@@ -59,16 +59,7 @@ import { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { SIGNUP } from "../utils/mutations";
 import { AuthAlert } from "./AuthAlert";
-import {
-  Box,
-  Heading,
-  FormControl,
-  FormLabel,
-  Input,
-  Button,
-  Text,
-  Link,
-} from "@chakra-ui/react";
+
 import Auth from "../utils/auth";
 
 export default function Signup() {

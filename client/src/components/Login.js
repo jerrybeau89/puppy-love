@@ -37,17 +37,17 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { LOGIN } from "../utils/mutations";
-import { AuthAlert } from "../components/AuthAlert";
-import { Link } from "react-router-dom"
-import {
-  Box,
-  Text,
-  FormControl,
-  FormLabel,
-  Input,
-  Button,
-} from "@chakra-ui/react";
-
+// import { AuthAlert } from "../components/AuthAlert";
+// import { Link } from "react-router-dom"
+// import {
+//   Box,
+//   Text,
+//   FormControl,
+//   FormLabel,
+//   Input,
+//   Button,
+// } from "@chakra-ui/react";
+import Auth from "../utils/auth"
 export default function Login() {
   const [showAlert, setShowAlert] = useState(false);
   const [formState, setFormState] = useState({
@@ -83,50 +83,51 @@ export default function Login() {
   };
 
   return (
-    <Box
-      maxW="sm"
-      mx="auto"
-      mt="8"
-      p="6"
-      bg="white"
-      borderRadius="md"
-      boxShadow="md"
-    >
-      <Text fontSize="3xl" fontWeight="bold" mb="6" textAlign="center">
-        Log in to your account
-      </Text>
-      <form onSubmit={handleSubmit}>
-        <FormControl mb="4">
-          <FormLabel>Email address</FormLabel>
-          <Input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={email}
-            onChange={handleChange}
-          />
-        </FormControl>
-        <FormControl mb="6">
-          <FormLabel>Password</FormLabel>
-          <Input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={password}
-            onChange={handleChange}
-          />
-        </FormControl>
-        <Button type="submit" colorScheme="blue" size="lg" w="full">
-          Log in
-        </Button>
-      </form>
-      <Text mt="4" textAlign="center">
-        Don't have an account?{" "}
-        <Link color="blue.500" href="/signup">
-          Sign up
-        </Link>
-      </Text>
-      {showAlert && <AuthAlert setShowAlert={setShowAlert} />}
-    </Box>
+    <h1>this is login </h1>
+    // <Box
+    //   maxW="sm"
+    //   mx="auto"
+    //   mt="8"
+    //   p="6"
+    //   bg="white"
+    //   borderRadius="md"
+    //   boxShadow="md"
+    // >
+    //   <Text fontSize="3xl" fontWeight="bold" mb="6" textAlign="center">
+    //     Log in to your account
+    //   </Text>
+    //   <form onSubmit={handleSubmit}>
+    //     <FormControl mb="4">
+    //       <FormLabel>Email address</FormLabel>
+    //       <Input
+    //         type="email"
+    //         name="email"
+    //         placeholder="Email"
+    //         value={email}
+    //         onChange={handleChange}
+    //       />
+    //     </FormControl>
+    //     <FormControl mb="6">
+    //       <FormLabel>Password</FormLabel>
+    //       <Input
+    //         type="password"
+    //         name="password"
+    //         placeholder="Password"
+    //         value={password}
+    //         onChange={handleChange}
+    //       />
+    //     </FormControl>
+    //     <Button type="submit" colorScheme="blue" size="lg" w="full">
+    //       Log in
+    //     </Button>
+    //   </form>
+    //   <Text mt="4" textAlign="center">
+    //     Don't have an account?{" "}
+    //     <Link color="blue.500" href="/signup">
+    //       Sign up
+    //     </Link>
+    //   </Text>
+    //   {showAlert && <AuthAlert setShowAlert={setShowAlert} />}
+    // </Box>
   );
 }

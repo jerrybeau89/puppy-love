@@ -1,11 +1,10 @@
-// import { ChakraProvider } from "@chakra-ui/react";
-import { CloseIcon, WarningTwoIcon } from "@chakra-ui/icons";
+
 import * as React from "react";
-import { Box, Alert, IconButton, Text } from "@chakra-ui/react";
+
 
 export const AuthAlert = ({ setShowAlert, forLogin }) => {
   return (
-   
+   <h1>hello</h1>
     // <Box
     //   display="flex"
     //   justifyContent="center"

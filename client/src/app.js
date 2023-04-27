@@ -1,27 +1,32 @@
 
 import Home from './pages/Home'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import {
+    ApolloClient,
+    InMemoryCache,
+    ApolloProvider,
+    createHttpLink,
+  } from "@apollo/client";
 
-import { ChakraProvider } from '@chakra-ui/react'
-
-// function MyApp({ Component, pageProps }) {
-//   return (
-//     <ChakraProvider>
-//       <Component {...pageProps} />
-//     </ChakraProvider>
-//   )
-// }
-
+  const httpLink = createHttpLink({
+    uri: "/graphql",
+  });
+  
+  const client = new ApolloClient({
+    link:httpLink,
+    cache: new InMemoryCache(),
+  });
+  
 
 function App() {
     return (
-      <ChakraProvider>
+    <ApolloProvider client={client}>
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<Home/>} />
             </Routes>
         </BrowserRouter>
-        </ChakraProvider>
+        </ApolloProvider>
     );
 }
 export default App;
