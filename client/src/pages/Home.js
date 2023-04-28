@@ -7,15 +7,19 @@ import title from '../img/title.png'
 const Home = () => {
 
   const [hideMain, setHideMain] = useState(false);
-  const handleLogin = () => {
-    setHideMain(true);
+  const [showLogin, setShowLogin] = useState(true);
+  
+  const toggle = () => {
+    setHideMain(wasOpened => !wasOpened);
+    setShowLogin(wasOpened => !wasOpened);
+    
   };
 
 
   return (
     <body>
       <div class="background">
-        <div>
+        <div onClick={toggle}>
           <nav>
             <div className="nav-left">
               <h1>Puppy-Luv</h1>
@@ -24,12 +28,14 @@ const Home = () => {
               <button className="btn">Login/Signup</button>
             </div>
           </nav>
-          <div className={`main ${hideMain ? "hidden" : ""}`}>
+          {hideMain && (
+          <div>
             <img src={title} alt="title"></img>
             <h2>Pawsome Love: Connect with Pet-lovers Using Adorable Pet Photos on Our Dating App</h2>
             <p>Find your perfect match who loves pets just as much as you do.</p>
-            <Login handleLogin={handleLogin} />
           </div>
+            )}
+            {showLogin && (<Login />)}
         </div>
       </div>
     </body>
