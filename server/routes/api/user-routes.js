@@ -4,22 +4,14 @@ const {
     createUser,
     login,
     getUsers,
-    like,
-    dislike,
     getUserProfile,
-    getMatchMessages,
-    getUserMatches,
-    userMatched,
-    getMatch,
-    getMatchField, 
-    getPotentialMatch,
     // getUserPreferences,
     // setUserPreferences,
-    createMessage,
     // getFilterPreferences,
     // setFilterPreferences
 
 } = require('../../controllers/user-controller');
+
 
 //importing middleware
 const { verifyToken } = require('../../utils/auth');
@@ -34,23 +26,6 @@ router.route('/login')
 
 router.route('/:id')
     .get(verifyToken, getUserProfile);
-
-// router.route('/:id/matches')
-//     .get(getUserMatches);
-
-// router.route('/:id/match/messages')
-//     .get(getMatch)
-//     .get(getMatchMessages)
-//     .post(createMessage);
-
-router.route('/field/:username')
-    .get(getMatchField);
-
-router.route('/like')
-    .post(like);
-
-router.route('/dislike')
-    .post(dislike);
 
 // router.route('/:id/preferences')
 //     .get(getUserPreferences);

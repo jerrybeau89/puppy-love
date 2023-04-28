@@ -1,18 +1,37 @@
 const { Message, User } = require('../models');
 
 module.exports = {
+
+    async sendMessage(req, res) {
+      const createMessage = await Message.create({
+        ...req.body,
+      });
+      res.json(createMessage);
+    }, 
+
     async getMessages(req, res)  {
-        Message.find({})
-            .select("-__v")
-            .then(messageData => {
-                res.json(messageData);
-            });
+      const allMessages = await Message.find({});
+      res.json(allMessages);
     },
 
-    async getMatchMessages({ body }, res){
-        const user = await User.find({_id: body.id});
+    async getMatchMessages({ params }, res){
+      Message.findOne({ _id: params.id})
+        .select('_id')
+        .then(matchMessage => {
+            res.json(matchMessage);
+        })
+    },
 
-        res.status(200);
+    async deleteMessage({params}, res) {
+      Message.destroy({ _id: params.id })
+        .select('_id')
+        .then(messageData => {
+            if(!messageData){
+                res.status(400).json({ message: 'Cannot find a message with this id!' });
+                return;
+            }
+            res.json(messageData);
+        });
     },
     
     async createMessage({ body }, res) {

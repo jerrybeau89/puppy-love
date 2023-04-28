@@ -40,7 +40,8 @@
         "username": "beau",
         "password": "1234",
         "email": "beau@gmail.com",
-        "matches": [],
+        "matches": [{
+            "name":"Gal G"}],
         "dislikes": [],
         "petPreferences": ["dog"],
         "pet" : ["dog"],

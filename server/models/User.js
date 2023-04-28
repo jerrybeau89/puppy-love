@@ -1,4 +1,6 @@
 const { Schema, model } = require('mongoose');
+const Message = require('./Message');
+//import logo from 'client/src/img/logo.PNG'
 
 const userSchema = new Schema(
     {
@@ -19,6 +21,11 @@ const userSchema = new Schema(
             type: String,
             required: true,
             match: [/.+@.+\.(com|org|net|edu)/, "Please enter a valid email"]
+        },
+        pic: {
+            type: String,
+            required: true,
+            
         },
         dob: {
             type: Date,
@@ -72,9 +79,15 @@ const userSchema = new Schema(
         ],
         matches: [
             {
-                type: Schema.Types.ObjectId,
-                ref: 'User'
-            }
+                id:  {
+                    type: Schema.Types.ObjectId,
+                    ref: 'User'
+                },
+                name: {
+                    type: Schema.Types.String,
+                    ref: "User"
+                }
+            },
         ],
         potentialMatches: [
             {
@@ -91,10 +104,6 @@ const userSchema = new Schema(
             }
         }
     },
-    //options
-    {
-        
-    }
 );
 
 const User = model('User', userSchema);

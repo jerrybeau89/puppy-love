@@ -142,6 +142,10 @@ module.exports = {
         const user = await User.findById({})
     }, 
 
+    async createMessage({}, res) {
+        const user = await User.create({});
+    }, 
+
     // async getFilterPreferences({}, res) {
     //     const user = await User;
     // },
