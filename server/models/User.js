@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 const Message = require('./Message');
-import defPic from 'client/src/img/logo.PNG'
+//import logo from 'client/src/img/logo.PNG'
 
 const userSchema = new Schema(
     {
@@ -25,7 +25,7 @@ const userSchema = new Schema(
         pic: {
             type: String,
             required: true,
-            default: defPic
+            
         },
         dob: {
             type: Date,

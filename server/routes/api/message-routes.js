@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 const { 
-    createMessage,
+    sendMessage,
     getMessages,
     getMatchMessages,
     deleteMessage,
@@ -13,7 +13,7 @@ router.route('/')
 
 router.route('/match/messages/')
     .get(getMatchMessages)
-    .post(createMessage);
+    .post(sendMessage);
 
 router.route('/match/messages/:id')
 
