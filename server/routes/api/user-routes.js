@@ -14,7 +14,7 @@ const {
 
 
 //importing middleware
-const { authMiddleware } = require('../../utils/auth');
+const { verifyToken } = require('../../utils/auth');
 
 //routes
 router.route('/')
@@ -25,7 +25,11 @@ router.route('/login')
     .post(login);
 
 router.route('/:id')
+
+    .get(verifyToken, getUserProfile);
+
     .get(getUserProfile);
+
 
 // router.route('/:id/preferences')
 //     .get(getUserPreferences);
