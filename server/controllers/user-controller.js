@@ -18,6 +18,8 @@ module.exports = {
                 return;
             }
 
+            const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
+            res.json({ token });
             res.status(200).json({ message: "User created successfully", newUser });
             
         } catch (error) {
@@ -54,58 +56,6 @@ module.exports = {
             });
     },
 
-    //needs to be given a request body in a json object that contains two things
-    //user which is the name of the user
-    //like which is the user to be disliked
-    async like(req, res){
-        User.findOne({username: req.body.like})
-        .select("_id")
-        .then(likedUser => {
-            User.findOneAndUpdate(
-                //currentUser
-                {username: req.body.username},
-                //updating the list
-                { $addToSet: { likes: likedUser._id.toString() }}
-            )
-            .then((userData) => {
-                if(!userData){
-                    res.status(404).json({ message: "No user found with that name"});
-                    return;
-                }
-                if(likedUser.likes.includes(userData._id)){
-                    res.status(200).json({ message: "It's a match!" });
-                    return;
-                }
-                res.status(200).json({ message: "successful like" });
-            })
-            .catch(err => res.json(err));
-        });
-    },
-
-    //needs to be given a request body in a json object that contains two things
-    //user which is the name of the user
-    //dislike which is the user to be disliked
-    async dislike(req, res){
-        User.findOne({username: req.body.dislike})
-        .select("_id")
-        .then(dislikedUser => {
-            User.findOneAndUpdate(
-                //currentUser
-                {username: req.body.username},
-                //updating the list
-                { $addToSet: { dislikes: dislikedUser._id.toString() }}
-            )
-            .then((userData) => {
-                if(!userData){
-                    res.status(404).json({ message: "No user found with that name"});
-                    return;
-                }
-                res.status(200).json({ message: "successful dislike" });
-            })
-            .catch(err => res.json(err));
-        });
-    },
-
     // async getUserPreferences({}, res){
     //     const user = await User.find({});
     // },
@@ -126,7 +76,7 @@ module.exports = {
             User.find(
                 {_id: { $nin: [...likes, ...dislikes, userProfile._id.toString()]}}
             )
-            .select('username name gender pet')
+            .select('_id username name gender pet')
             //sorts descendingly
             .sort({ _id: 1 })
             //returns the users

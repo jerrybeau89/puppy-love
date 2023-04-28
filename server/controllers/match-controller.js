@@ -33,16 +33,38 @@ module.exports = {
       .then(likedUser => {
           User.findOneAndUpdate(
               //currentUser
-              {username: req.body.user},
+              {username: req.body.username},
               //updating the list
               { $addToSet: { likes: likedUser._id.toString() }}
           )
           .then((userData) => {
-              if(!userData){
-                  res.status(404).json({ message: "No user found with that name"});
-                  return;
-              }
-              res.status(200).json({ message: "successful like" });
+                if(!userData){
+                    res.status(404).json({ message: "No user found with that name"});
+                    return;
+                }
+
+                //checks if the liked user likes the current user
+                User.findOne({
+                    _id: likedUser._id,
+                    likes: userData._id
+                })
+                //if so we update the matches so that they are in each others matches
+                .then(likesCurrent => {
+                    if(likesCurrent){
+                        User.findOneAndUpdate(
+                            { _id: likedUser._id },
+                            { $addToSet: { matches: userData._id } }
+                        );
+                        User.findOneAndUpdate(
+                            { _id: userData._id },
+                            { $addToSet: { matches: likedUser._id.toString() } }
+                        );
+                    }
+
+                });
+
+              
+                res.status(200).json({ message: "successful like" });
           })
           .catch(err => res.json(err));
       });
@@ -57,7 +79,7 @@ module.exports = {
       .then(dislikedUser => {
           User.findOneAndUpdate(
               //currentUser
-              {username: req.body.user},
+              {username: req.body.username},
               //updating the list
               { $addToSet: { dislikes: dislikedUser._id.toString() }}
           )

@@ -79,14 +79,8 @@ const userSchema = new Schema(
         ],
         matches: [
             {
-                id:  {
-                    type: Schema.Types.ObjectId,
-                    ref: 'User'
-                },
-                name: {
-                    type: Schema.Types.String,
-                    ref: "User"
-                }
+                type: Schema.Types.ObjectId,
+                ref: 'User'
             },
         ],
         potentialMatches: [

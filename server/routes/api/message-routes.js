@@ -6,7 +6,6 @@ const {
     getMatchMessages,
     deleteMessage,
 } = require('../../controllers/message-controller');
-const { getMatch } = require('../../controllers/match-controller');
 
 router.route('/')
     .get(getMessages);
