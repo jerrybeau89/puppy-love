@@ -1,6 +1,8 @@
 import React from "react";
-import '../../src/index.css'
+import '../../src/index.css';
 import Login from "../components/Login";
+import title from '../img/title.png'
+
 // import Signup from "../components/Signup";
 const Home = () => {
 
@@ -17,7 +19,10 @@ const Home = () => {
           <div className="nav-right">
            
             <button className="btn">Login/Signup</button>
+
+            
           </div>
+          
         </nav>
         
         <div className="main">
@@ -25,9 +30,7 @@ const Home = () => {
           <h2>Pawsome Love: Connect with Pet-lovers Using Adorable Pet Photos on Our Dating App</h2>
           <p>Find your perfect match who loves pets just as much as you do.</p>
 
-         
-
-          <button className="btn"><span></span>started</button>
+          {/* <button className="btn"><span></span>started</button> */}
           <Login/>
         </div>
       </div>

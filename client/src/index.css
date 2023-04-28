@@ -13,7 +13,7 @@ body {
   background-position: center center;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(rgba(40,40,40,0.75),rgba(40,40,40,0.75)), url(/Users/msouksavat/project3/puppy-love/client/src/img/Doggy.jpeg);
+  background-image: linear-gradient(rgba(40,40,40,0.75),rgba(40,40,40,0.75)), url(./img/Doggy.jpeg);
 
 }
 
