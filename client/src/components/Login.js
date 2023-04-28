@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { LOGIN } from "../utils/mutations";
 import { Link } from "react-router-dom"
-
+import { AuthAlert } from "./AuthAlert";
 
 import {
   Sheet,
@@ -112,6 +112,7 @@ export default function Login() {
           Don&apos;t have an account?
         </Typography>
       </Sheet>
+      {showAlert && <AuthAlert setShowAlert={setShowAlert} forLogin={true}/>}
     </main>
   );
 }
