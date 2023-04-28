@@ -25,9 +25,6 @@ router.route('/login')
     .post(login);
 
 router.route('/:id')
-
-    .get(verifyToken, getUserProfile);
-
     .get(getUserProfile);
 
 

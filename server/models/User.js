@@ -24,7 +24,6 @@ const userSchema = new Schema(
         },
         pic: {
             type: String,
-            required: true,
             
         },
         dob: {
@@ -95,15 +94,8 @@ const userSchema = new Schema(
                 ref: 'User'
             }
         ],
-        createdAt: {
-            type: Date,
-            default: Date.now,
-            //just basic unformatted request
-            get: timestamp => {
-                return timestamp;
-            }
-        }
     },
+    { timestamps: true}
 );
 
 const User = model('User', userSchema);
