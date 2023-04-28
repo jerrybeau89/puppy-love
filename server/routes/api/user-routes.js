@@ -27,7 +27,6 @@ router.route('/login')
 router.route('/:id')
     .get(getUserProfile);
 
-
 // router.route('/:id/preferences')
 //     .get(getUserPreferences);
 

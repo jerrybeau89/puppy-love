@@ -18,6 +18,8 @@ module.exports = {
                 return;
             }
 
+            const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
+            res.json({ token });
             res.status(200).json({ message: "User created successfully", newUser });
             
         } catch (error) {
@@ -53,7 +55,6 @@ module.exports = {
                 res.json(userData);
             });
     },
-
 
     // async getUserPreferences({}, res){
     //     const user = await User.find({});
