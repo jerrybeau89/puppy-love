@@ -64,38 +64,6 @@ module.exports = {
     //     const user = await User.findOneAndUpdate({});
     // },
 
-    //requires the url to be formatted to /api/users/field/:username
-    //:username will pass in the user
-    async getMatchField(req, res) {
-        User.findOne({username: req.params.username})
-        .select('_id likes dislikes')
-        .then(userProfile => {
-            const likes = userProfile.likes;
-            const dislikes = userProfile.dislikes;
-
-            User.find(
-                {_id: { $nin: [...likes, ...dislikes, userProfile._id.toString()]}}
-            )
-            .select('_id username name gender pet')
-            //sorts descendingly
-            .sort({ _id: 1 })
-            //returns the users
-            .then(dbUserData => res.json(dbUserData))
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });        
-    },
-
-    async getPotentialMatch({}, res) {
-        const user = await User.findById({})
-    }, 
-
-    async createMessage({}, res) {
-        const user = await User.create({});
-    }, 
-
     // async getFilterPreferences({}, res) {
     //     const user = await User;
     // },

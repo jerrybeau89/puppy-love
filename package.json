@@ -23,12 +23,5 @@
   "homepage": "https://github.com/jerrybeau89/puppy-love#readme",
   "devDependencies": {
     "concurrently": "^8.0.1"
-  },
-  "dependencies": {
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
-    "@headlessui/react": "^1.7.14",
-    "@heroicons/react": "^2.0.17",
-    "framer-motion": "^10.12.4"
   }
 }

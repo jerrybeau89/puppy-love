@@ -1,0 +1,38 @@
+[
+  {
+    "users": [
+      {
+        "name": "Paul R",
+        "email": "paul@gmail.com"
+      },
+      {
+        "name": "Gal G",
+        "email": "gal@gmail.com"
+      }
+    ]
+  },
+  {
+    "users": [
+      {
+        "name": "Ashton K",
+        "email": "ashton@gmail.com"
+      },
+      {
+        "name": "Mila K",
+        "email": "mila@gmail.com"
+      }
+    ]
+  },
+  {
+    "users": [
+      {
+        "name": "Ryan R",
+        "email": "ryan@gmail.com"
+      },
+      {
+        "name": "Rachel M",
+        "email": "rachel@gmail.com"
+      }
+    ]
+  }
+]
