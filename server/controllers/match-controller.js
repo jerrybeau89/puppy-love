@@ -49,13 +49,13 @@ module.exports = {
                     likes: userData._id
                 })
                 //if so we update the matches so that they are in each others matches
-                .then(likesCurrent => {
+                .then(async likesCurrent => {
                     if(likesCurrent){
-                        User.findOneAndUpdate(
+                        await User.findOneAndUpdate(
                             { _id: likedUser._id },
                             { $addToSet: { matches: userData._id } }
                         );
-                        User.findOneAndUpdate(
+                        await User.findOneAndUpdate(
                             { _id: userData._id },
                             { $addToSet: { matches: likedUser._id.toString() } }
                         );
