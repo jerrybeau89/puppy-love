@@ -1,6 +1,7 @@
 
 import Home from './pages/Home'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 import {
     ApolloClient,
     InMemoryCache,
@@ -23,6 +24,7 @@ import {
 function App() {
     return (
     <ApolloProvider client={client}>
+      
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<Home/>} />
