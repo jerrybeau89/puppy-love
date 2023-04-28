@@ -2,7 +2,7 @@ const { Message } = require('../models');
 
 module.exports = {
 
-    async createMessage(req, res) {
+    async sendMessage(req, res) {
       const createMessage = await Message.create({
         ...req.body,
       });
