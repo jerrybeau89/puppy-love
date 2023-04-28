@@ -1,12 +1,31 @@
-const { Message, User } = require('../models');
+const { Message, User, Chat } = require('../models');
 
 module.exports = {
 
     async sendMessage(req, res) {
-      const createMessage = await Message.create({
-        ...req.body,
-      });
-      res.json(createMessage);
+      const {content, chatId } = req.body;
+      if(!content || !chatId) {
+        res.status(400).json({ message: 'No content or chatId.' });
+        return;
+      }
+
+      let newMessage = {
+        sender: req.user._id,
+        content: content,
+        chat: chatId,
+      };
+
+      const message = await Message.create(newMessage)
+        .populate("sender", "name pic").execPopulate()
+        .populate("chat").execPopulate();
+      User.populate(message, {
+          path: "chat.users",
+          select: "name email pic",
+        });
+      Chat.findByIdAndUpdate(
+        req.body.chatId, 
+        { latestMessage: message });
+          res.json(message);
     }, 
 
     async getMessages(req, res)  {
@@ -32,20 +51,5 @@ module.exports = {
             }
             res.json(messageData);
         });
-    },
-    
-    async createMessage({ body }, res) {
-        //formatted as
-        //content [{
-        //     from [{
-        //         user: references the user
-        //         message: contains text and a timestamp
-        //     }]
-        //    to [{
-        //         user: references the user
-        //         message: contains text and a timestamp
-        //     }]
-        // }]
-        const user = await Message.create({ body });
     }, 
 }
