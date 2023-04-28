@@ -22,7 +22,7 @@ const {
 } = require('../../controllers/user-controller');
 
 //importing middleware
-const { authMiddleware } = require('../../utils/auth');
+const { verifyToken } = require('../../utils/auth');
 
 //routes
 router.route('/')
@@ -33,7 +33,7 @@ router.route('/login')
     .post(login);
 
 router.route('/:id')
-    .get(getUserProfile);
+    .get(verifyToken, getUserProfile);
 
 // router.route('/:id/matches')
 //     .get(getUserMatches);
