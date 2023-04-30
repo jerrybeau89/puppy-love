@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@100&display=swap');
 body {
   margin: 0px;
   padding: 0px;
@@ -59,19 +59,29 @@ nav {
     max-width: 600px;
     text-align: center;
   }
-  
+  h2, p {
+    text-align: center;
+  }
   h2 {
     font-family: fjalla one;
+    font-weight: 300;
     font-size: 36px;
-    margin: 0;
+    /* margin:auto ; */
     /* margin-bottom: 20px; */
-    margin-top: 80px;
-    color: #fff;
+    margin-top: 30px;
+    text-shadow: 1px 1px 1px #fff;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #eac715 ;
   }
-  
+  .quote {
+    text-shadow: 1px 1px 1px #EA5C15;
+  }
   p {
-    font-family: fjalla one;
-    font-size: 18px;
+    
+    font-family:"Great vibes";
+    font-size: 45px;
     color: #fffdfd;
     /* margin-bottom: 30px; */
     margin: 20px auto;
