@@ -7,9 +7,11 @@ import {
     createHttpLink,
   } from "@apollo/client";
 
-import Login from './components/Login';
+// import Login from './components/Login';
   const httpLink = createHttpLink({
-    uri: "/graphql",
+    //change it back later
+    // uri: "/graphql"
+    uri: "http://localhost:3001/graphql",
   });
   
   const client = new ApolloClient({

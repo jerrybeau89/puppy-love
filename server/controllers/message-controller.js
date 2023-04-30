@@ -9,28 +9,53 @@ module.exports = {
         return;
       }
 
-      let newMessage = {
+      const newMessage = {
         sender: req.user._id,
         content: content,
         chat: chatId,
       };
 
-      const message = await Message.create(newMessage)
-        .populate("sender", "name pic").execPopulate()
-        .populate("chat").execPopulate();
-      User.populate(message, {
-          path: "chat.users",
-          select: "name email pic",
-        });
-      Chat.findByIdAndUpdate(
-        req.body.chatId, 
-        { latestMessage: message });
-          res.json(message);
+      Message.create(newMessage)
+        .populate("sender", "name pic")
+        .populate("chat")
+        .then((messageData) => {
+
+          if(!messageData){
+            res.status(404).json({message: "No message data."});
+            return;
+          }
+
+          User.populate(messageData, {
+            path: "chat.users",
+            select: "name email pic",
+          });
+        })
+        .then((recentMessage) => {
+
+          if(!recentMessage){
+            res.status(404).json({message: "No message data."});
+            return;
+          }
+          Chat.findByIdAndUpdate(
+            req.body.chatId, 
+            { latestMessage: recentMessage });
+            res.json(recentMessage);
+          })
+          .catch(err => res.json(err));
     }, 
 
     async getMessages(req, res)  {
-      const allMessages = await Message.find({});
-      res.json(allMessages);
+      const allMessages = await Message.find({ chat: req.params.chatId })
+      .populate("sender", "name pic email")
+      .populate("chat")
+      .then((allMessages) => {
+
+        if (!allMessages){
+          res.status(404).json({message: "No messages found."})
+        }
+        res.json(allMessages);
+      })
+      .catch(err => res.json(err));
     },
 
     async getMatchMessages({ params }, res){
