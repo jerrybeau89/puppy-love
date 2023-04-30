@@ -1,26 +1,20 @@
 [
   {
     "sender": {
-      "name": ""
+      "name": "Paul R"
     },
-    "content": "",
-    "readBy": [],
-    "chat": ""
+    "content": "Hello"
   },
   {
     "sender": {
-      "name": ""
+      "name": "Ashton K"
     },
-    "content": "",
-    "readBy": [],
-    "chat": ""
+    "content": "What's up?"
   },
   {
     "sender": {
-      "name": ""
+      "name": "Ryan R"
     },
-    "content": "",
-    "readBy": [],
-    "chat": ""
+    "content": "Hey, it's me"
   }
 ]

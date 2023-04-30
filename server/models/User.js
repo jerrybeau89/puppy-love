@@ -12,6 +12,7 @@ const userSchema = new Schema(
         username: {
             type: String,
             required: true,
+            unique: true
         },
         password: {
             type: String,
@@ -19,12 +20,12 @@ const userSchema = new Schema(
         },
         email: {
             type: String,
+            unique: true,
             required: true,
             match: [/.+@.+\.(com|org|net|edu)/, "Please enter a valid email"]
         },
         pic: {
             type: String,
-            
         },
         dob: {
             type: Date,

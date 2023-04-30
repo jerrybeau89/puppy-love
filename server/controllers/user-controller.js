@@ -5,7 +5,8 @@ require('dotenv').config();
 module.exports = {
 
     async getUsers(req, res) {
-        const users = await User.find({}).select("-__v");
+        const users = await User.find({})
+        .select("-__v");
         res.json(users);
     },
 
