@@ -12,6 +12,7 @@ router.route('/:chatId')
 
 router.route('/match/messages/')
     .get(getMatchMessages)
-    .post(sendMessage);
+    .post(sendMessage)
+    .delete(deleteMessage);
 
 module.exports = router;

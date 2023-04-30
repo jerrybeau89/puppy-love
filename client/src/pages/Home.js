@@ -28,7 +28,7 @@ const Home = () => {
             </div>
             <div className="nav-right">
               <button onClick={toggle} className="btn">Login/Signup</button>
-             
+
             </div>
           </nav>
           {hideMain && (
@@ -36,8 +36,9 @@ const Home = () => {
             <div style={{ textAlign: "left" }}>
             <img src={title} alt="title"></img>
             <h2 className="quote"
-            style={{ textAlign: "center", marginTop: "30px", color: "#dfaf20" }} >Pawsome Love: Connect with Pet-lovers Using Adorable Pet Photos on Our Dating App</h2>
-            <p className="quote" style={{ textAlign: "center", marginTop: "10px", color: "#c8ac37", }}>Find your perfect match who loves pets just as much as you do.</p>
+            style={{ textAlign: "center", marginTop: "30px", color: "#eac715" }} >Pawsome Love: Connect with Pet-lovers Using Adorable Pet Photos on Our Dating App</h2>
+            <p className="quote" style={{ textAlign: "center", marginTop: "10px", color: "#eac715", }}>Find your perfect match who loves pets just as much as you do.</p>
+
           </div>
           </div>
             )}
