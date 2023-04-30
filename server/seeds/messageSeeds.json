@@ -3,18 +3,27 @@
     "sender": {
       "name": "Paul R"
     },
-    "content": "Hello"
+    "content": "Hello",
+    "readBy": {
+      "name": "Gal G"
+    }
   },
   {
     "sender": {
       "name": "Ashton K"
     },
-    "content": "What's up?"
+    "content": "What's up?",
+    "readBy": {
+      "name": "Mila K"
+    }
   },
   {
     "sender": {
       "name": "Ryan R"
     },
-    "content": "Hey, it's me"
+    "content": "Hey, it's me",
+    "readBy": {
+      "name": "Rachel M"
+    }
   }
 ]
