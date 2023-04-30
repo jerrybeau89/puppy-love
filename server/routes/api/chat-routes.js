@@ -1,11 +1,11 @@
 const router = require('express').Router();
 const {
-    accessChat,
-    fetchChats,
+    getSingleChat,
+    getChats,
 } = require("../../controllers/chat-controller");
 
 router.route("/")
-  .get(fetchChats)
-  .post(accessChat);
+  .get(getChats)
+  .post(getSingleChat);
 
 module.exports = router;
