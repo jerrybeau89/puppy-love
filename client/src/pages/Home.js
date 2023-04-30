@@ -28,6 +28,7 @@ const Home = () => {
             </div>
             <div className="nav-right">
               <button onClick={toggle} className="btn">Login/Signup</button>
+             
             </div>
           </nav>
           {hideMain && (

@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { SIGNUP } from "../utils/mutations";
-
+import { AuthAlert } from "./AuthAlert";
 import {
   Sheet,
   Typography,
@@ -104,7 +104,7 @@ export default function Signup() {
           />
         </FormControl>
 
-        <Button sx={{ mt: 1 /* margin top */ }} onClick={handleSubmit}>
+        <Button sx={{ mt: 1, color:"black", bgcolor: "#f4d40b"}} onClick={handleSubmit}>
           Sign up
         </Button>
         <Typography
@@ -115,6 +115,7 @@ export default function Signup() {
           Already have an account?
         </Typography>
       </Sheet>
+      {showAlert && <AuthAlert setShowAlert={setShowAlert} />}
     </main>
   );
 }
