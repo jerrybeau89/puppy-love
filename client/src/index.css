@@ -65,7 +65,9 @@ nav {
   h2 {
     font-family: fjalla one;
     font-weight: 300;
-    font-size: 36px;
+
+    font-size: 50px;
+
     /* margin:auto ; */
     /* margin-bottom: 20px; */
     margin-top: 30px;
@@ -73,10 +75,12 @@ nav {
     line-height: 1.5;
     letter-spacing: 1px;
     text-align: center;
-    color: #eac715 ;
+
+    /* color: #eac715 ; */
   }
   .quote {
-    text-shadow: 1px 1px 1px #EA5C15;
+    text-shadow: 1px 1px 1px #b66036;
+
   }
   p {
     
