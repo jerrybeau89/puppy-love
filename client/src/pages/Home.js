@@ -6,8 +6,8 @@ import title from '../img/title.png'
 // import Signup from "../components/Signup";
 const Home = () => {
 
-  const [hideMain, setHideMain] = useState(false);
-  const [showLogin, setShowLogin] = useState(true);
+  const [hideMain, setHideMain] = useState(true);
+  const [showLogin, setShowLogin] = useState(false);
   
   const toggle = () => {
     setHideMain(wasOpened => !wasOpened);
