@@ -1,6 +1,8 @@
 
 import Home from './pages/Home'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom'
+// import Messenger from './pages/messenger/Messenger'
+// import Login from './components/Login';
 
 import {
     ApolloClient,
@@ -25,11 +27,22 @@ function App() {
     return (
     <ApolloProvider client={client}>
       
-        <BrowserRouter>
+        <Router>
             <Routes>
                 <Route path='/' element={<Home/>} />
-            </Routes>
-        </BrowserRouter>
+                </Routes>
+
+                {/* <Routes>
+                <Route path='/' element={<Login/>} />
+                </Routes>
+
+                <Routes>
+                 <Route path='/' element={<Messenger/>} />
+                 </Routes> */}
+
+            
+            
+        </Router>
         </ApolloProvider>
     );
 }

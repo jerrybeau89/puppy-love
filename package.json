@@ -23,5 +23,8 @@
   "homepage": "https://github.com/jerrybeau89/puppy-love#readme",
   "devDependencies": {
     "concurrently": "^8.0.1"
+  },
+  "dependencies": {
+    "mui-file-input": "^2.0.0"
   }
 }

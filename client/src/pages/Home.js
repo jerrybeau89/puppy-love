@@ -31,6 +31,7 @@ const Home = () => {
           <p>Find your perfect match who loves pets just as much as you do.</p>
 
           {/* <button className="btn"><span></span>started</button> */}
+          
           <Login/>
         </div>
       </div>
