@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-const Message = require('./Message'); //Display error message????
+const Message = require('../pages/message/Message'); //Display error message????
 import Home from "./Home";
 import { MuiFileInput } from 'mui-file-input'
 

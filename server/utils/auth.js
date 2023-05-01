@@ -1,22 +1,35 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
+const secret = 'secret secret shh';
+const expiration = '2h';
+
 //authentification function
 module.exports = {
-    verifyToken(req, res, next) {
-        console.log(req);
-        const authorizationHeader = req.headers.authorization;
-        if (!authorizationHeader) {
-          return res.status(401).json({ message: 'No authorization header found' });
+    verifyToken({ req }) {
+        let token = req.body.token || req.query.token || req.headers.authorization;
+
+        if (req.headers.authorization) {
+          token = token.split(' ').pop().trim();
         }
-        const token = authorizationHeader.split(' ')[1];
+        
+        if(!token){
+          return req;
+        }
+
         try {
-          const decoded = jwt.verify(token, process.env.JWT_SECRET);
-          req.userId = decoded.id;
-          next();
-        } catch (error) {
-          console.log(error);
-          return res.status(401).json({ message: 'Invalid token' });
+          const { data } = jwt.verify(token, secret, { maxAge: expiration });
+          req.user = data;
+        } catch (err) {
+          console.error(err);
+          console.log('Invalid token');
         }
-    }
+
+        return req;
+    },
+    signToken({ firstName, email, _id }) {
+      const payload = { firstName, email, _id };
+
+      return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
+    },
 }
