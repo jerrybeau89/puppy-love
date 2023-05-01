@@ -106,7 +106,7 @@ export default function Signup() {
           />
         </FormControl>
 
-        <Button sx={{ mt: 1, color:"black", bgcolor: "#f4d40b"}} onClick={handleSubmit}>
+        <Button sx={{ mt: 1, color:"black", bgcolor: "#f4d40b", ":hover": {bgcolor: "#4163be"}}} onClick={handleSubmit}>
           Sign up
         </Button>
         <Typography

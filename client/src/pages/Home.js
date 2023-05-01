@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import '../../src/index.css';
-import Login from "../components/Login";
+// import Login from "../components/Login";
 import title from '../img/title.png'
-import {toggle } from '../components/Header'
+
 // import testlogo from '../img/testlogo2.PNG'
 
 const Home = () => {

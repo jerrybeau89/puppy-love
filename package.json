@@ -25,10 +25,6 @@
     "concurrently": "^8.0.1"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "@mui/styles": "^5.12.0"
-=======
     "mui-file-input": "^2.0.0"
->>>>>>> main
   }
 }
