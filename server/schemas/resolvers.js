@@ -76,7 +76,11 @@ const resolvers = {
                 users: { $all: [userFrom._id, userTo._id]}
             })
 
-            return Chat;
+            const messages = await Message.find(
+                { chat: chat._id }
+            );
+
+            return {chat, messages};
         },
 
         getChats: async () => {
@@ -134,15 +138,21 @@ const resolvers = {
             return updatedUser;
         },
 
-        like: async (parent, { userId, likedId }) =>  {
-            const likedUser = await User.findById(likedId);
+        like: async (parent, { user, liked }) =>  {
+            const likedUser = liked._id ? 
+                await User.findById(liked._id)
+                : await User.find({username: liked.username});
 
             if(!likedUser){
                 return "User not found";
             }
 
+            let identification = user._id ? 
+                { _id: user._id }
+                : {username: user.username};
+
             const currentUser = await User.findOneAndUpdate(
-                { _id: userId },
+                { identification },
                 { $addToSet: { likes: likedUser._id.toString() }}
             );
 
@@ -151,18 +161,18 @@ const resolvers = {
             }
 
             const likesCurrent = await User.findOne({
-                _id: likedId,
-                likes: userId
+                _id: likedUser._id,
+                likes: currentUser._id
             });
 
             if(likesCurrent){
                 await User.findOneAndUpdate(
-                    { _id: likedId },
-                    { $addToSet: { matches: userId}}
+                    { _id: likedUser._id },
+                    { $addToSet: { matches: currentUser._id}}
                 );
                 await User.findOneAndUpdate(
-                    { _id: userId },
-                    { $addToSet: { matches: likedId}}
+                    { _id: currentUser._id },
+                    { $addToSet: { matches: likedUser._id}}
                 );
                 return `${currentUser.name} matched with ${likedUser.name}`
             }
@@ -170,11 +180,24 @@ const resolvers = {
             return "Successful Like";
         },
 
-        dislike: async (parent, { userId, dislikedId }) => {
+        dislike: async (parent, { user, disliked }) => {
             try{
+                let identification = user._id ?
+                    { _id: user._id }
+                    : { username: user.username} ;
+
+                let dislikedIdentification = disliked._id ?
+                { _id: disliked._id }
+                : { username: disliked.username} ;
+
+                const dislikedUser = await User.findOne(
+                    { dislikedIdentification }
+                );
+
                 const dislikedData = await User.findOneAndUpdate(
-                    { _id: userId },
-                    { $addToSet: { dislikes: dislikedId }}
+                    { identification },
+                    { $addToSet: { dislikes: dislikedUser._id }},
+                    { new: true }
                 );
 
                 if(!dislikedData){
@@ -185,6 +208,68 @@ const resolvers = {
             }catch (err){
                 throw new Error(err);
             }
+        },
+
+        sendMessage: async (parent, { content, from, recipient}) => {
+            if(!content || !from){
+                return `No content or user`;
+            }
+
+            if(recipient.chatId) {
+                const messageData = await Message.create({
+                        sender: from,
+                        content: content,
+                        chat: recipient.chatId
+                    }
+                );
+
+                if(!messageData){
+                    return `Message couldn't be created`;
+                }
+
+                const updatedChat = await Chat.findOneAndUpdate(
+                    { _id: recipient.chatId },
+                    { latestMessage: messageData._id },
+                    { new: true }
+                );
+
+                if(!updatedChat){
+                    throw new Error(`Couldn't update chat`);
+                }
+            }else{
+
+                let identification = recipient.readBy._id?
+                    { _id: recipient.readBy._id }
+                    :{ username: recipient.readBy.username };
+
+                const userTo = await User.findOne({
+                    identification
+                }).select(`_id`);
+
+                const messageData = await Message.create({
+                        sender: from,
+                        content: content,
+                        readBy: userTo._id
+                    }
+                ); 
+
+                if(!messageData){
+                    throw new Error(`Message couldn't be created`);
+                }
+
+                const chat = await Chat.findOneAndUpdate(
+                    { users: { $all: [from, userTo._id]} },
+                    { latestMessage: messageData._id },
+                    { new: true }
+                );
+
+                if(!chat){
+                    throw new Error(`Couldn't update chat`);
+                }
+
+            }
+
+            return `Message successfully sent`;
         }
     },
 

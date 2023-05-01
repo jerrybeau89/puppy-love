@@ -34,6 +34,11 @@ const typeDefs = gql`
         user: User
     }
 
+    type ChatMessages{
+        chat: Chat
+        messages: Message
+    }
+
     enum Gender {
         male
         female
@@ -68,8 +73,18 @@ const typeDefs = gql`
         getMatchMessages(_id: ID!): Message!
         getUserMatches(_id: ID!): User!
         getMatchField(_id: ID!): [User!]!
-        getSingleChat(from: String!, to: String!): Chat
+        getSingleChat(from: String!, to: String!): ChatMessages
         getChats: [Chat!]!
+    }
+
+    input UserSearchInput{
+        _id: ID
+        username: String
+    }
+
+    input SendMessageInput{
+        chatId: ID
+        readBy: UserSearchInput
     }
 
     type Mutation {
@@ -86,8 +101,9 @@ const typeDefs = gql`
         ): Auth
         login(email: String!, password: String!): Auth
         updateUser(_id: ID!, body: UpdateUserInput!): User
-        like(userId: ID!, likedId: ID!): String
-        dislike(userId: ID!, dislikedId: ID!): String
+        like(user: UserSeachInput!, liked: UserSearchInput!): String
+        dislike(user: UserSearchInput!, disliked: UserSearchInput!): String
+        sendMessage(content: String!, from: ID!, recipient: sendMessageInput): String
     }
 
     input UpdateUserInput {
