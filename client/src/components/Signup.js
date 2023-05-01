@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { SIGNUP } from "../utils/mutations";
 import { AuthAlert } from "./AuthAlert";
+import { Link } from "react-router-dom"
 import {
   Sheet,
   Typography,
@@ -10,7 +11,6 @@ import {
   FormLabel,
   Input,
   Button,
-  Link,
 } from "@mui/joy";
 import Auth from "../utils/auth";
 
@@ -52,7 +52,9 @@ export default function Signup() {
 
   return (
     <main>
-    <Sheet
+      <body>
+      <div class="background">
+         <Sheet
         sx={{
           width: 300,
           mx: "auto",
@@ -108,14 +110,17 @@ export default function Signup() {
           Sign up
         </Button>
         <Typography
-          endDecorator={<Link href="/login">Log in</Link>}
           fontSize="sm"
-          sx={{ alignSelf: "center" }}
-        >
-          Already have an account?
+          sx={{ alignSelf: "center" }}>
+          <h4>
+            Already have an account?<Link to="/login">Sign In</Link>
+          </h4>
         </Typography>
       </Sheet>
       {showAlert && <AuthAlert setShowAlert={setShowAlert} />}
+      </div>
+    </body>
+    
     </main>
   );
 }

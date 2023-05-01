@@ -12,7 +12,7 @@ import {
   } from "@mui/joy";
 
   
-const Message = require('./Message');
+const Message = require('./message/Message');
 
 const User = () => {
     const [name, setName] = useState("");
