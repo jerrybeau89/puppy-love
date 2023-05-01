@@ -40,16 +40,9 @@ const Home = () => {
             <p className="quote" style={{ textAlign: "center", marginTop: "10px", color: "#eac715", }}>Find your perfect match who loves pets just as much as you do.</p>
 
           </div>
-          
-        </nav>
-        
-        <div className="main">
-        <img src= {title} alt="title"></img>
-          <h2>Pawsome Love: Connect with Pet-lovers Using Adorable Pet Photos on Our Dating App</h2>
-          <p>Find your perfect match who loves pets just as much as you do.</p>
-
-          {/* <button className="btn"><span></span>started</button> */}
-          <Login/>
+          </div>
+            )}
+            {showLogin && (<Login />)}
         </div>
       </div>
     </body>
