@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-const Message = require('./Message'); //Display error message????
 import Home from "./Home";
 import { MuiFileInput } from 'mui-file-input'
 
@@ -11,6 +10,9 @@ import {
     Input,
     Button,
   } from "@mui/joy";
+
+  
+const Message = require('./Message');
 
 const User = () => {
     const [name, setName] = useState("");

@@ -11,20 +11,20 @@ const typeDefs = gql`
 
     type User {
         _id: ID!
-        name: String!
+        name: String
         username: String!
         password: String!
         email: String!
         pic: String
-        dob: String!
+        dob: String
         phoneNumber: String
         gender: Gender
         pet: [Pet!]!
-        petPreferences: [Pet!]!
-        likes: [User!]!
-        dislikes: [User!]!
-        matches: [User!]!
-        potentialMathces: [User!]!
+        petPreferences: [Pet]
+        likes: [User]
+        dislikes: [User]
+        matches: [User]
+        potentialMathces: [User]
         createdAt: String!
         updatedAt: String!
     }
@@ -65,22 +65,40 @@ const typeDefs = gql`
         getUser(_id: ID!): User
         getUsers: [User!]!
         getMessages(chatId: ID!): [Message]!
-        getMatchMessages(id: ID!): Message!
+        getMatchMessages(_id: ID!): Message!
+        getUserMatches(_id: ID!): User!
+        getMatchField(_id: ID!): [User!]!
+        getSingleChat(from: String!, to: String!): Chat
+        getChats: [Chat!]!
     }
 
     type Mutation {
         createUser(
-            name: String!
+            name: String
             username: String!
             password: String!
             email: String!
-            dob: String!
+            dob: String
             phoneNumber: String
             gender: Gender
-            pet: [Pet!]!
-            petPreferences: [Pet!]!
+            pet: [Pet]
+            petPreferences: [Pet]
         ): Auth
         login(email: String!, password: String!): Auth
+        updateUser(_id: ID!, body: UpdateUserInput!): User
+        like(userId: ID!, likedId: ID!): String
+        dislike(userId: ID!, dislikedId: ID!): String
+    }
+
+    input UpdateUserInput {
+        name: String
+        username: String
+        email: String
+        dob: String
+        phoneNumber: String
+        gender: Gender
+        pet: [Pet]
+        petPreferences: [Pet]
     }
 `;
 
