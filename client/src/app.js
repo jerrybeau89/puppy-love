@@ -1,8 +1,5 @@
-
 import Home from './pages/Home'
-import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom'
-// import Messenger from './pages/messenger/Messenger'
-// import Login from './components/Login';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import {
     ApolloClient,
@@ -11,9 +8,11 @@ import {
     createHttpLink,
   } from "@apollo/client";
 
-
+// import Login from './components/Login';
   const httpLink = createHttpLink({
-    uri: "/graphql",
+    //change it back later
+    // uri: "/graphql"
+    uri: "http://localhost:3001/graphql",
   });
   
   const client = new ApolloClient({
@@ -30,19 +29,8 @@ function App() {
         <Router>
             <Routes>
                 <Route path='/' element={<Home/>} />
-                </Routes>
-
-                {/* <Routes>
-                <Route path='/' element={<Login/>} />
-                </Routes>
-
-                <Routes>
-                 <Route path='/' element={<Messenger/>} />
-                 </Routes> */}
-
-            
-            
-        </Router>
+            </Routes>
+        </BrowserRouter>
         </ApolloProvider>
     );
 }

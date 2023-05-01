@@ -12,6 +12,7 @@ const userSchema = new Schema(
         username: {
             type: String,
             required: true,
+            unique: true
         },
         password: {
             type: String,
@@ -19,13 +20,12 @@ const userSchema = new Schema(
         },
         email: {
             type: String,
+            unique: true,
             required: true,
             match: [/.+@.+\.(com|org|net|edu)/, "Please enter a valid email"]
         },
         pic: {
             type: String,
-            required: true,
-            
         },
         dob: {
             type: Date,
@@ -79,14 +79,8 @@ const userSchema = new Schema(
         ],
         matches: [
             {
-                id:  {
-                    type: Schema.Types.ObjectId,
-                    ref: 'User'
-                },
-                name: {
-                    type: Schema.Types.String,
-                    ref: "User"
-                }
+                type: Schema.Types.ObjectId,
+                ref: 'User'
             },
         ],
         potentialMatches: [
@@ -95,15 +89,8 @@ const userSchema = new Schema(
                 ref: 'User'
             }
         ],
-        createdAt: {
-            type: Date,
-            default: Date.now,
-            //just basic unformatted request
-            get: timestamp => {
-                return timestamp;
-            }
-        }
     },
+    { timestamps: true}
 );
 
 const User = model('User', userSchema);

@@ -4,6 +4,7 @@ require('dotenv').config();
 //authentification function
 module.exports = {
     verifyToken(req, res, next) {
+        console.log(req);
         const authorizationHeader = req.headers.authorization;
         if (!authorizationHeader) {
           return res.status(401).json({ message: 'No authorization header found' });

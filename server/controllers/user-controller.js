@@ -5,7 +5,8 @@ require('dotenv').config();
 module.exports = {
 
     async getUsers(req, res) {
-        const users = await User.find({}).select("-__v");
+        const users = await User.find({})
+        .select("-__v");
         res.json(users);
     },
 
@@ -18,7 +19,8 @@ module.exports = {
                 return;
             }
 
-            res.status(200).json({ message: "User created successfully", newUser });
+            const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET);
+            res.status(200).json({ message: "User created successfully", token, newUser });
             
         } catch (error) {
             res.status(500).json(error);
@@ -40,7 +42,7 @@ module.exports = {
 
         // Generate JWT token and send it to the client
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-        res.json({ token });
+        res.json({ token, user });
     },
 
     async getUserProfile({ params }, res) {
@@ -54,9 +56,25 @@ module.exports = {
             });
     },
 
+    async updateUser({params, body}, res) {
+        try{
+            User.findOneAndUpdate(
+                { _id: params.id },
+                body
+            ).then(updatedUser => {
+                if(!updatedUser){
+                    return res.status(404).json({ message: "User not found"});
+                }
+                res.status(200).json({ message: "User successfully updated", updatedUser });
+            });
+
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
 
     // async getUserPreferences({}, res){
-    //     const user = await User.find({});
+    //     const user = await User.findOneAndUpdate({});
     // },
 
     // async setUserPreferences({}, res){
