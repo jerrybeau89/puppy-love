@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import '../../src/index.css';
 import Login from "../components/Login";
 import title from '../img/title.png'
+// import Logo1 from '../img/Logo1.png'
 // import testlogo from '../img/testlogo2.PNG'
 
 // import Signup from "../components/Signup";
@@ -23,7 +24,7 @@ const Home = () => {
         <div >
           <nav>
             <div className="nav-left">
-              <h1>Puppy-Luv</h1>
+            {/* <img src={Logo1} alt="logo"></img> */}
               {/* <img src={testlogo} alt="logo"></img> */}
             </div>
             <div className="nav-right">

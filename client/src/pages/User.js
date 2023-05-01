@@ -9,6 +9,7 @@ import {
     FormControl,
     FormLabel,
     Input,
+    Grid,
     Button,
   } from "@mui/joy";
 
@@ -20,7 +21,7 @@ const User = () => {
 
     <Home title="EDIT PROFILE">
       <div>
-        <Row className="profileContainer">
+        <Grid className="profileContainer">
           sx={{ md: 6 }}
             <Input onSubmit={submitHandler}>
               {success && (
@@ -91,7 +92,7 @@ const User = () => {
           
             <img src={pic} alt={name} className="profilePic" />
 
-        </Row>
+        </Grid>
       </div>
     </Home>
 
