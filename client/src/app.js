@@ -1,9 +1,8 @@
-import Home from './pages/Home'
-import Login from './components/Login';
-import Signup from './components/Signup';
-import Filter from './pages/Filter'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
+import React from "react";
+import ReactDOM from "react-dom";
+import { Outlet, useLocation } from 'react-router-dom';
+import Header from './components/Header'
+import Footer from './components/Footer'
 
 import {
     ApolloClient,
@@ -27,19 +26,19 @@ import {
 
 
 function App() {
+
+  const location = useLocation();
     return (
-    <ApolloProvider client={client}>
       
-        <BrowserRouter>
-            <Routes>
-                <Route path='/' element={<Home/>} />
-                <Route path="/login" element={<Login />}/>
-                <Route path="/signup" element={<Signup />} />
-                <Route path="/filter" element={<Filter/>}/>
-                
-            </Routes>
-        </BrowserRouter>
-        </ApolloProvider>
+    <ApolloProvider client={client}>
+       <div className=''>
+          <Header />
+            <Outlet location={location} key={location.pathname} />
+          <Footer />
+        </div>
+    
+       
+    </ApolloProvider>
     );
 }
 export default App;
