@@ -53,7 +53,7 @@ const userSchema = new Schema(
             {
                 type: String,
                 enum: ['dog', 'cat', 'reptile', 'spider', 'snake', 'fish', 'bird', 'other'],
-                required: true,
+                required: false,
             }
         ],
         petPreferences: [

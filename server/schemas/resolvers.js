@@ -120,13 +120,14 @@ const resolvers = {
         },
 
         //complete if we have time or future
-        getPotentialMatch: async () => {
+        // getPotentialMatch: async () => {
 
-        }
+        // }
     },
 
     Mutation: {
         signUp: async (parent, req) => {
+            console.log("HIT LINE 130 PEANUT BUTTER")
             const user = await User.create({
                 username: req.username,
                 email: req.email,
@@ -141,6 +142,7 @@ const resolvers = {
 
         login: async (parent, { email, password}) => {
             const user = await User.findOne({email: email});
+            
             if (!user) {
                 throw new AuthenticationError("User not found");
             }

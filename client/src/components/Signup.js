@@ -36,6 +36,9 @@ export default function Signup() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      console.log(username,
+        email,
+        password,)
       const response = await signup({
         variables: {
           username,
@@ -43,6 +46,7 @@ export default function Signup() {
           password,
         },
       });
+      console.log(response)
       // get the token from the response and save to localStorage
       Auth.login(response.data.signup.token);
     } catch (err) {
