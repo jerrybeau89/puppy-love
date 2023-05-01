@@ -101,7 +101,7 @@ export default function Login() {
           />
         </FormControl>
 
-        <Button sx={{ mt: 1, color:"black", bgcolor: "#f4d40b" }} onClick={handleSubmit}>
+        <Button sx={{ mt: 1, color:"white", bgcolor: "black",  ":hover": {bgcolor: "grey" }}} onClick={handleSubmit}>
           Log in
         </Button>
         <Typography
