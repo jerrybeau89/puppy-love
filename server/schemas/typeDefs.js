@@ -29,6 +29,11 @@ const typeDefs = gql`
         updatedAt: String!
     }
 
+    type Auth {
+        token: ID
+        user: User
+    }
+
     enum Gender {
         male
         female
@@ -64,12 +69,18 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        createUser(name: String!, username: String!, password: String!, email: String!, dob: String!, phoneNumber: String, gender: Gender, pet: [Pet!]!, petPreferences: [Pet!]!): Auth
+        createUser(
+            name: String!
+            username: String!
+            password: String!
+            email: String!
+            dob: String!
+            phoneNumber: String
+            gender: Gender
+            pet: [Pet!]!
+            petPreferences: [Pet!]!
+        ): Auth
         login(email: String!, password: String!): Auth
-        updateUser(id: ID!, name: String, username: String, password: String, email: String, pic: String, dob: String, phoneNumber: String, gender: Gender, pet: [Pet!], petPreferences: [Pet!], likes: [ID!], dislikes: [ID!], matches: [ID!], potentialMatches: [ID!]): User!
-        deleteUser(id: ID!): User
-        sendMessage(input: SendMessageInput!): Message!
-        deleteMessage(id: ID!): Message!
     }
 `;
 

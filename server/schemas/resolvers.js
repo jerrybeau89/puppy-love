@@ -4,18 +4,9 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        users: async() =>  User.find(),
+        getUsers: async() =>  User.find(),
         // Returns a single user by ID
-        user: (parent, { id }) => User.findById(id),
-
-        // Returns all users that match the given pet preferences
-        usersByPetPreferences: (parent, { petPreferences }) =>
-            User.find({ petPreferences }),
-
-        // Returns all users that match the given gender preference
-        usersByGenderPreference: (parent, { genderPreference }) => {
-            User.find({ gender: genderPreference })
-        },
+        getUser: (parent, { id }) => User.findById(id),
 
         getMessages: async (parent, { chatId }) => {
             const messages = await Message.find({ chat: chatId })
@@ -44,16 +35,12 @@ const resolvers = {
         },
 
         login: async (parent, { email, password}) => {
-            const user = await User.findOne({$or: [ 
-                {username: username },
-                {email: email}
-            ]});
-
+            const user = await User.findOne({email: email});
             if (!user) {
                 throw new AuthenticationError('No user found with this email address');
             }
 
-            const isPasswordValid = await user.comparePassword(password);
+            const isPasswordValid = user.password === password;
             
             if (!isPasswordValid) {
                 throw new AuthenticationError('Incorrect credentials');
@@ -63,38 +50,6 @@ const resolvers = {
 
             return { token, user };
         },
-
-        sendMessage: async (parent, { input }, { user }) => {
-            const { content, chatId } = input;
-            if (!content || !chatId) {
-              throw new Error('No content or chatId.');
-            }
-            const newMessage = {
-              sender: user._id,
-              content: content,
-              chat: chatId,
-            };
-            const messageData = await Message.create(newMessage)
-              .populate('sender', 'name pic')
-              .populate('chat');
-            if (!messageData) {
-              throw new Error('No message data.');
-            }
-            const recentMessage = await User.populate(messageData, {
-              path: 'chat.users',
-              select: 'name email pic',
-            });
-            await Chat.findByIdAndUpdate(chatId, { latestMessage: recentMessage });
-            return recentMessage;
-          },
-
-          deleteMessage: async (parent, { id }) => {
-            const messageData = await Message.findByIdAndDelete(id).select('_id');
-            if (!messageData) {
-              throw new Error('Cannot find a message with this id!');
-            }
-            return messageData;
-          },
     },
 
 };
