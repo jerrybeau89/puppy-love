@@ -55,7 +55,9 @@ export default function Login() {
   return (
     <main>
     
-    <Sheet
+    <body>
+      <div class="background">
+          <Sheet
       sx={{
         color: "yellow",
         width: 300,
@@ -105,14 +107,17 @@ export default function Login() {
           Log in
         </Button>
         <Typography
-          endDecorator={<Link to="/signup">Sign up</Link>}
           fontSize="sm"
-          sx={{ alignSelf: "center" }}
-        >
-          Don&apos;t have an account?
+          sx={{ alignSelf: "center" }}>
+          <h4>
+           Don&apos;t have an account? <Link to="/signup">Sign Up</Link>
+          </h4>
         </Typography>
       </Sheet>
       {showAlert && <AuthAlert setShowAlert={setShowAlert} forLogin={true}/>}
+      </div>
+    </body>
+    
     </main>
   );
 }
