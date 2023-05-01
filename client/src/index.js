@@ -5,11 +5,8 @@ import Home from './pages/Home'
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Filter from './pages/Filter'
-<<<<<<< HEAD
-import {  Routes, Route, HashRouter as Router } from 'react-router-dom'
-=======
+// import Profile from "./pages/Profile";
 import { Routes, Route, HashRouter as Router } from 'react-router-dom'
->>>>>>> main
 // import Messenger from './pages/messenger/Messenger';
 // import { Routes } from "react-router-dom";
 
@@ -22,6 +19,7 @@ ReactDOM.render(
                 <Route path="/login" element={<Login />}/>
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/filter" element={<Filter/>}/>
+                {/* <Route path="/profile" element={<Profile/>}/> */}
                 </Route>
             </Routes>
          </Router>

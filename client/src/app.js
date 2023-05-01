@@ -1,17 +1,7 @@
 import React from "react";
-<<<<<<< HEAD
-
 import { Outlet, useLocation } from 'react-router-dom';
 import Header from './components/Header'
 import Footer from './components/Footer'
-
-
-
-=======
-import { Outlet, useLocation } from 'react-router-dom';
-import Header from './components/Header'
-import Footer from './components/Footer'
->>>>>>> main
 import { setContext } from '@apollo/client/link/context';
 
 import {
