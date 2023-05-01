@@ -132,7 +132,7 @@ const typeDefs = gql`
             body: UpdateUserInput!
             ): User
         like(
-            user: UserSeachInput!, 
+            user: UserSearchInput!, 
             liked: UserSearchInput!
             ): String
         dislike(
@@ -142,7 +142,7 @@ const typeDefs = gql`
         sendMessage(
             content: String!, 
             from: ID!, 
-            recipient: sendMessageInput
+            recipient: SendMessageInput
             ): String
         deleteMessage(
             chatId: ID!

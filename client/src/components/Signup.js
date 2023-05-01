@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { SIGNUP } from "../utils/mutations";
 import { AuthAlert } from "./AuthAlert";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import {
   Sheet,
   Typography,
@@ -36,6 +36,9 @@ export default function Signup() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      console.log(username,
+        email,
+        password,)
       const response = await signup({
         variables: {
           username,
@@ -43,6 +46,7 @@ export default function Signup() {
           password,
         },
       });
+      console.log(response)
       // get the token from the response and save to localStorage
       Auth.login(response.data.signup.token);
     } catch (err) {
@@ -106,7 +110,7 @@ export default function Signup() {
           />
         </FormControl>
 
-        <Button sx={{ mt: 1, color:"black", bgcolor: "#f4d40b"}} onClick={handleSubmit}>
+        <Button sx={{ mt: 1, color:"black", bgcolor: "#f4d40b", ":hover": {bgcolor: "#4163be"}}} onClick={handleSubmit}>
           Sign up
         </Button>
         <Typography

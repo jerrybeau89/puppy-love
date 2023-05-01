@@ -37,8 +37,8 @@ nav {
   }
   
   .nav-right button {
-    background-color: black;
-    color: #fff;
+    background-color: #e6af19;
+    color: black;
     border: none;
     padding: 10px 20px;
     border-radius: 20px;
@@ -93,8 +93,8 @@ nav {
   }
   
   .btn {
-    background-color: black;
-    color: #fff;
+    background-color: #e8bb17;
+    color: black;
     border: none;
     padding: 10px 20px;
     border-radius: 20px;
