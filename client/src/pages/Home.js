@@ -1,8 +1,6 @@
 import React from "react";
 import '../../src/index.css';
-// import Login from "../components/Login";
 import title from '../img/title.png'
-
 // import testlogo from '../img/testlogo2.PNG'
 
 const Home = () => {
