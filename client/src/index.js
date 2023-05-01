@@ -7,10 +7,6 @@ import Signup from './components/Signup';
 import Filter from './pages/Filter'
 // import Profile from "./pages/Profile";
 import { Routes, Route, HashRouter as Router } from 'react-router-dom'
-
-import User from './pages/User';
-import UserProfile from './pages/UserProfile'
-import Messenger from './pages/messenger/Messenger';
 // import { Routes } from "react-router-dom";
 
 ReactDOM.render(

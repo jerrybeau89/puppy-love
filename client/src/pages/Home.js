@@ -1,7 +1,6 @@
 import React from "react";
 import '../../src/index.css';
 import title from '../img/title.png'
-import {toggle } from '../components/Header'
 // import testlogo from '../img/testlogo2.PNG'
 
 const Home = () => {
@@ -9,18 +8,6 @@ const Home = () => {
   return (
     <body>
       <div class="background">
-        <div>
-          <nav>
-            <div className="nav-left">
-            {/* <img src={Logo1} alt="logo"></img> */}
-              {/* <img src={testlogo} alt="logo"></img> */}
-            </div>
-            <div className="nav-right">
-              <button onClick={toggle} className="btn">Login/Signup</button>
-
-            </div>
-          </nav>
-          {hideMain && (
           <div style={{ display: "flex", justifyContent: "center" }} >
             <div style={{ textAlign: "left" }}>
             <img src={title} alt="title"></img>
