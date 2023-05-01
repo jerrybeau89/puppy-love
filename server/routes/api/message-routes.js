@@ -10,7 +10,7 @@ const {
 router.route('/:chatId')
     .get(getMessages);
 
-router.route('/match/messages/')
+router.route('/message/')
     .get(getMatchMessages)
     .post(sendMessage)
     .delete(deleteMessage);

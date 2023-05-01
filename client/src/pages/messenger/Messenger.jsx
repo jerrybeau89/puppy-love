@@ -1,5 +1,5 @@
 import React from 'react'
-import "./messenger.css";
+import './messenger.css';
 import Conversation from "../conversation/Conversation";
 import Message from "../message/Message";
 import ChatOnline from "../../components/chatOnline/ChatOnline";
@@ -7,8 +7,23 @@ import ChatOnline from "../../components/chatOnline/ChatOnline";
 
 
 export default function Messenger() {
+  // const [conversations, setConversations] = useState([]);
+  // const [messages, setMessages] = useState([]);
+  // const [currentChat, setCurrentChat] = useState(null);
 
-
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const message = {
+  //     sender: user._id,
+  //     text: newMessage,
+  //     conversationId: currentChat._id,
+  //   };
+  // }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(e);
+  }
+  
   return (
     <>
       

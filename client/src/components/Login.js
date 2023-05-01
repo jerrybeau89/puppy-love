@@ -55,7 +55,9 @@ export default function Login() {
   return (
     <main>
     
-    <Sheet
+    <body>
+      <div class="background">
+          <Sheet
       sx={{
         color: "yellow",
         width: 300,
@@ -101,18 +103,21 @@ export default function Login() {
           />
         </FormControl>
 
-        <Button sx={{ mt: 1, color:"black", bgcolor: "#f4d40b" }} onClick={handleSubmit}>
+        <Button sx={{ mt: 1, color:"white", bgcolor: "black",  ":hover": {bgcolor: "grey" }}} onClick={handleSubmit}>
           Log in
         </Button>
         <Typography
-          endDecorator={<Link to="/signup">Sign up</Link>}
           fontSize="sm"
-          sx={{ alignSelf: "center" }}
-        >
-          Don&apos;t have an account?
+          sx={{ alignSelf: "center" }}>
+          <h4>
+           Don&apos;t have an account? <Link to="/signup">Sign Up</Link>
+          </h4>
         </Typography>
       </Sheet>
       {showAlert && <AuthAlert setShowAlert={setShowAlert} forLogin={true}/>}
+      </div>
+    </body>
+    
     </main>
   );
 }
