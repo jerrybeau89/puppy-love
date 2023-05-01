@@ -33,4 +33,18 @@ export const SIGNUP = gql`
   }
 `;
 
+// export const UPDATEUSER = gql`
+//   mutation updateUser($user: [ID]!){
+//     updateUser(
+//       user: $user,
+//       body: UpdateUserInput
+//     ) {
+//       token
+//       user{
+//         _id
+//       }
+//     }
+//   }
+// `;
+
 
