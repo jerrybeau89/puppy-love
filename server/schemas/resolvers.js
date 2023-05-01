@@ -4,7 +4,14 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        getUsers: () =>  User.find({}),
+        getUsers: async () =>  {
+            const users = User.find({});
+
+            if(!users) { 
+                throw new Error("No Users, check seeds");
+            }
+            return users;
+        },
         // Returns a single user by ID
         getUser: async (parent, { id }) => {
             const user = await User.findOne({_id: id})
@@ -90,11 +97,37 @@ const resolvers = {
             .sort({ updatedAt: -1 });
 
             return chatData;
-        }
+        },
+
+        getUserProfile: async (parent, { id }) => {
+            const userProfile = await User.findOne({_id: id})
+            .select("-__v")
+
+            if(!userProfile) {
+                throw new Error("No user profile with that ID.");
+            }
+            return userProfile;
+        },
+
+        getMatch: async (parent, { id }) => {
+            const match = await User.findById({ _id: id})
+            .select("_id")
+
+            if(!match){
+                 throw new Error("No match with that ID");
+            }
+            return match;
+        },
+
+        //complete if we have time or future
+        // getPotentialMatch: async () => {
+
+        // }
     },
 
     Mutation: {
-        signup: async (parent, req) => {
+        signUp: async (parent, req) => {
+            console.log("HIT LINE 130 PEANUT BUTTER")
             const user = await User.create({
                 username: req.username,
                 email: req.email,
@@ -109,6 +142,7 @@ const resolvers = {
 
         login: async (parent, { email, password}) => {
             const user = await User.findOne({email: email});
+            
             if (!user) {
                 throw new AuthenticationError("User not found");
             }
@@ -270,6 +304,16 @@ const resolvers = {
             }
 
             return `Message successfully sent`;
+        },
+
+        deleteMessage: async (parent, { id }) => {
+            const delMessage = await Message.destroy({ _id: id })
+            .select('_id')
+
+            if(!delMessage) {
+                 throw new Error("No message to delete with that ID");
+            }
+            return users;
         }
     },
 

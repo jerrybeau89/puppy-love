@@ -67,14 +67,33 @@ const typeDefs = gql`
     }
 
     type Query {
-        getUser(_id: ID!): User
+        getUser(
+            _id: ID!
+            ): User
         getUsers: [User!]!
-        getMessages(chatId: ID!): [Message]!
-        getMatchMessages(_id: ID!): Message!
-        getUserMatches(_id: ID!): User!
-        getMatchField(_id: ID!): [User!]!
-        getSingleChat(from: String!, to: String!): ChatMessages
+        getUserProfile(
+            _id: ID!
+            ): User!
+        getMessages(
+            chatId: ID!
+            ): [Message]!
+        getMatchMessages(
+            _id: ID!
+            ): Message!
+        getUserMatches(
+            _id: ID!
+            ): User!
+        getMatchField(
+            _id: ID!
+            ): [User!]!
+        getSingleChat(
+            from: String!, 
+            to: String!
+            ): ChatMessages
         getChats: [Chat!]!
+        getMatch(
+            _id: ID!
+            ): User!
     }
 
     input UserSearchInput{
@@ -88,6 +107,11 @@ const typeDefs = gql`
     }
 
     type Mutation {
+        signUp(
+            username: String!
+            password: String!
+            email: String!
+        ): Auth
         createUser(
             name: String
             username: String!
@@ -99,11 +123,30 @@ const typeDefs = gql`
             pet: [Pet]
             petPreferences: [Pet]
         ): Auth
-        login(email: String!, password: String!): Auth
-        updateUser(_id: ID!, body: UpdateUserInput!): User
-        like(user: UserSeachInput!, liked: UserSearchInput!): String
-        dislike(user: UserSearchInput!, disliked: UserSearchInput!): String
-        sendMessage(content: String!, from: ID!, recipient: sendMessageInput): String
+        login(
+            email: String!, 
+            password: String!
+            ): Auth
+        updateUser(
+            _id: ID!, 
+            body: UpdateUserInput!
+            ): User
+        like(
+            user: UserSearchInput!, 
+            liked: UserSearchInput!
+            ): String
+        dislike(
+            user: UserSearchInput!, 
+            disliked: UserSearchInput!
+            ): String
+        sendMessage(
+            content: String!, 
+            from: ID!, 
+            recipient: SendMessageInput
+            ): String
+        deleteMessage(
+            chatId: ID!
+            ): [Message]!
     }
 
     input UpdateUserInput {

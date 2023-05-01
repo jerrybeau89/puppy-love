@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Filter from './pages/Filter'
+// import Profile from "./pages/Profile";
 import { Routes, Route, HashRouter as Router } from 'react-router-dom'
 
 import User from './pages/User';
@@ -21,9 +22,6 @@ ReactDOM.render(
                 <Route path="/login" element={<Login />}/>
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/filter" element={<Filter/>}/>
-
-                <Route path="/messenger" element={<Messenger />}/>
-                <Route exact path="/user" element={<User />}/>
                 </Route>
             </Routes>
          </Router>
