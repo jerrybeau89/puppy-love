@@ -105,8 +105,4 @@ export default function Header() {
     </React.Fragment>
   );
 }
-
-  // const login = ()=> {
-  //   <Login />
-  // }
   
