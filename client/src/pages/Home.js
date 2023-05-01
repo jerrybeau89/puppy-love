@@ -26,13 +26,12 @@ const Home = () => {
 
             </div>
             <div className="nav-right">
-             
-              <NavLink onclick ={toggle} exact to="/" activeClassName="active" className="btn">
-            Home
-          </NavLink>
-          <NavLink to="/login" activeClassName="active" className="btn">
-            Login/
-          </NavLink>
+              <NavLink onclick={toggle} exact to="/" activeClassName="active" className="btn">
+                Home
+              </NavLink>
+              <NavLink to="/login" activeClassName="active" className="btn">
+                Login/
+              </NavLink>
             </div>
           </nav>
           {hideMain && (

@@ -5,6 +5,7 @@ const {
     login,
     getUsers,
     getUserProfile,
+    updateUser,
     // getUserPreferences,
     // setUserPreferences,
     // getFilterPreferences,
@@ -25,7 +26,8 @@ router.route('/login')
     .post(login);
 
 router.route('/:id')
-    .get(getUserProfile);
+    .get(getUserProfile)
+    .post(updateUser);
 
 // router.route('/:id/preferences')
 //     .get(getUserPreferences);
