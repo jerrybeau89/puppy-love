@@ -7,7 +7,6 @@ const userSchema = new Schema(
         //login details
         name: {
             type: String,
-            required: true
         },
         username: {
             type: String,
@@ -29,7 +28,6 @@ const userSchema = new Schema(
         },
         dob: {
             type: Date,
-            required: true,
             validate: {
                 validator: function(value) {
                     let eighteenYearsAgo = new Date();
@@ -62,7 +60,6 @@ const userSchema = new Schema(
             {
                 type: String,
                 enum: ['dog', 'cat', 'reptile', 'spider', 'snake', 'fish', 'bird', 'other'],
-                required: true,
             }
         ],
         likes: [
@@ -90,7 +87,9 @@ const userSchema = new Schema(
             }
         ],
     },
-    { timestamps: true}
+    { 
+        timestamps: true
+    }
 );
 
 const User = model('User', userSchema);

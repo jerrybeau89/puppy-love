@@ -11,20 +11,20 @@ const typeDefs = gql`
 
     type User {
         _id: ID!
-        name: String!
+        name: String
         username: String!
         password: String!
         email: String!
         pic: String
-        dob: String!
+        dob: String
         phoneNumber: String
         gender: Gender
         pet: [Pet!]!
-        petPreferences: [Pet!]!
-        likes: [User!]!
-        dislikes: [User!]!
-        matches: [User!]!
-        potentialMathces: [User!]!
+        petPreferences: [Pet]
+        likes: [User]
+        dislikes: [User]
+        matches: [User]
+        potentialMathces: [User]
         createdAt: String!
         updatedAt: String!
     }
@@ -32,6 +32,11 @@ const typeDefs = gql`
     type Auth {
         token: ID
         user: User
+    }
+
+    type ChatMessages{
+        chat: Chat
+        messages: Message
     }
 
     enum Gender {
@@ -65,22 +70,51 @@ const typeDefs = gql`
         getUser(_id: ID!): User
         getUsers: [User!]!
         getMessages(chatId: ID!): [Message]!
-        getMatchMessages(id: ID!): Message!
+        getMatchMessages(_id: ID!): Message!
+        getUserMatches(_id: ID!): User!
+        getMatchField(_id: ID!): [User!]!
+        getSingleChat(from: String!, to: String!): ChatMessages
+        getChats: [Chat!]!
+    }
+
+    input UserSearchInput{
+        _id: ID
+        username: String
+    }
+
+    input SendMessageInput{
+        chatId: ID
+        readBy: UserSearchInput
     }
 
     type Mutation {
         createUser(
-            name: String!
+            name: String
             username: String!
             password: String!
             email: String!
-            dob: String!
+            dob: String
             phoneNumber: String
             gender: Gender
-            pet: [Pet!]!
-            petPreferences: [Pet!]!
+            pet: [Pet]
+            petPreferences: [Pet]
         ): Auth
         login(email: String!, password: String!): Auth
+        updateUser(_id: ID!, body: UpdateUserInput!): User
+        like(user: UserSeachInput!, liked: UserSearchInput!): String
+        dislike(user: UserSearchInput!, disliked: UserSearchInput!): String
+        sendMessage(content: String!, from: ID!, recipient: sendMessageInput): String
+    }
+
+    input UpdateUserInput {
+        name: String
+        username: String
+        email: String
+        dob: String
+        phoneNumber: String
+        gender: Gender
+        pet: [Pet]
+        petPreferences: [Pet]
     }
 `;
 
