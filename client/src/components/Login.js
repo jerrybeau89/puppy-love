@@ -26,30 +26,30 @@ export default function Login() {
   });
   const { email, password } = formState;
   // get the login mutation function from useMutation
-  const [login] = useMutation(LOGIN);
-
-  const handleChange = ({ target }) => {
-    const { name, value } = target;
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-  };
+  const [login, {error}] = useMutation(LOGIN);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await login({
+      const mutationResponse = await login({
         variables: {
-          email,
-          password,
+          email: formState.email,
+          password: formState.password,
         },
       });
       // get the token from the response and save to localStorage
-      Auth.login(response.data.login.token);
+      Auth.login(mutationResponse.data.login.token);
     } catch (err) {
       setShowAlert(true);
     }
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
   };
 
   return (
