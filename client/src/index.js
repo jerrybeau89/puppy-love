@@ -5,7 +5,7 @@ import Home from './pages/Home'
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Filter from './pages/Filter'
-import { BrowserRouter, Routes, Route, HashRouter as Router } from 'react-router-dom'
+import { Routes, Route, HashRouter as Router } from 'react-router-dom'
 // import Messenger from './pages/messenger/Messenger';
 // import { Routes } from "react-router-dom";
 
