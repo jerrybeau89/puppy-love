@@ -3,23 +3,32 @@ const { Message, User, Chat } = require('../models');
 module.exports = {
 
     async sendMessage(req, res) {
-      const {content, chatId } = req.body;
-      if(!content || !chatId) {
+      const { content, chatId, username} = req.body;
+      if(!content || !chatId || !username) {
         res.status(400).json({ message: 'No content or chatId.' });
         return;
       }
 
+      const userId = await User.findOne({username: req.body.username})
+      .select('_id')
+      .then((userId) => {
+        if(!userId){
+          res.status(404).json({message: "No user ID."});
+          return;
+        }
+        res.json(userId);
+      });
       const newMessage = {
-        sender: req.user._id,
+        sender: userId,
         content: content,
         chat: chatId,
       };
 
-      Message.create(newMessage)
-        .populate("sender", "name pic")
-        .populate("chat")
+      console.log(newMessage)
+      const message = await Message.create(newMessage);
+        message.populate("sender", "name pic")
+        message.populate("chat")
         .then((messageData) => {
-
           if(!messageData){
             res.status(404).json({message: "No message data."});
             return;

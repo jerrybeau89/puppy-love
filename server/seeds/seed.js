@@ -9,7 +9,6 @@ db.once('open', async () => {
     try{
         await User.deleteMany({});
         await User.create(userSeeds);
-
         
         //format the chat seeds
         for(let chat of chatSeeds) {
@@ -61,7 +60,8 @@ db.once('open', async () => {
         
         await Message.deleteMany({});
         await Message.create(messageSeeds);
-
+        
+        //update each of the users matched
         for(let match of matchSeeds){
             await User.findOne(match.user1)
             .select("_id")
