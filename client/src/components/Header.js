@@ -10,6 +10,7 @@ import Tooltip from '@mui/material/Tooltip';
 import Logout from '@mui/icons-material/Logout';
 import '../../src/index.css';
 import { Link } from "react-router-dom";
+import Auth from '../utils/auth';
 // import User from "../pages/User"
 
 
@@ -52,7 +53,8 @@ export default function Header() {
         </Box>
 
         <div className="nav-right">
-            <button className="btn"><Link to="/login"style={{ textDecoration: 'none' }}>Login/Sign Up</Link></button>
+           {!Auth.loggedIn() && <button className="btn"><Link to="/login"style={{ textDecoration: 'none' }}>Login/Sign Up</Link></button>}
+            
         </div>
       </nav>
       <Menu
