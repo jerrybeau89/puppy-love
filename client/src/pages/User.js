@@ -9,21 +9,54 @@ import {
     FormLabel,
     Input,
     Button,
-    Grid,
   } from "@mui/joy";
 
   
-const Message = require('./message/Message');
+// const Message = require('./message/Message');
 
-const User = () => {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
+// const User = () => {
+//    const [formState, setFormState] = useState({
+//     name: "", email: "", password: "", confirmPassword: "", 
+//    })
+
+//    const { name, email, password, confirmPassword} = formState;
+
+//    const [updateUser] = useMutation(UPDATEUSER);
+
+//     const handleSubmit = async (event) => {
+//     event.preventDefault();
+//     try {
+//       if (formState.password === formState.confirmPassword){
+//         const password = formState.password;
+//         return password;
+//       } else{
+//         <User />
+//       }
+//       const mutationResponse = await updateUser({
+//         variables: {
+//           name: formState.name,
+//           email: formState.email,
+//           password: password,
+//         },
+//       });
+//       // get the token from the response and save to localStorage
+//       Auth.login(mutationResponse.data.signup.token);
+//     } catch (err) {
+//       console.log(err)
+//     }
+//   };
+
+//   const handleChange = (event) => {
+//     const { name, value } = event.target;
+//     setFormState({
+//       ...formState,
+//       [name]: value,
+//     });
+//   };
 
     <Home title="EDIT PROFILE">
       <div>
-        <Grid className="profileContainer">
+        <Row className="profileContainer">
           sx={{ md: 6 }}
             <Input onSubmit={submitHandler}>
               {success && (
@@ -86,18 +119,18 @@ const User = () => {
               </Button>
             </Input>
           
-          sx= {{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
+//           sx= {{
+//               display: "flex",
+//               alignItems: "center",
+//               justifyContent: "center",
+//             }}
           
-            <img src={pic} alt={name} className="profilePic" />
+//             {/* <img src={pic} alt={name} className="profilePic" /> */}
 
-        </Grid>
+        </Row>
       </div>
     </Home>
 
-};
+// };
 
-export default User;
+// export default User;
