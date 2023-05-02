@@ -3,6 +3,7 @@ This is a repo containing code for an app called puppy-love in which you find da
 
 
 ## Description
+Puppy love is a dating app where you can share your lovely pets photos and find your perfect match who loves pets as much as you do! This app allows you to send messages to matches, see potential matches in your area and customize a profile so you can find puppy love yourself. 
 
 
 https://github.com/jerrybeau89/puppy-love
@@ -14,11 +15,11 @@ https://github.com/jerrybeau89/puppy-love
   2. [Usage](#usage)
   3. [License](#license)
   4. [Tests](#tests)
-  5. [Video](#video)
+  5. [Link](#link)
   6. [Questions](#questions)
 
 ## Installation
-npm install social-api
+npm install puppy-love
 
 ## Usage
 Navigate to ***Some Website*** 
@@ -80,8 +81,8 @@ Sample JSON body data is in the respective controller file.
 ## Tests
 Tests can be conducted through insomnia or some other similar application.
 
-## Video
-Here is a video of the program being used: 
+## Link
+https://puppy-love.herokuapp.com/
 
 ## Questions
 
