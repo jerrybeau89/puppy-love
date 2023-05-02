@@ -1,16 +1,16 @@
 
-import "./conversation.css";
+// import "./conversation.css";
 
-export default function Conversation() {
+// export default function Conversation() {
 
-  return (
-    <div className="conversation">
-      <img
-        className="conversationImg"
-        src=""
-        alt=""
-      />
-      <span className="conversationName">{user?.username}</span>
-    </div>
-  );
-}
+//   return (
+//     <div className="conversation">
+//       <img
+//         className="conversationImg"
+//         src=""
+//         alt=""
+//       />
+//       <span className="conversationName">{user?.username}</span>
+//     </div>
+//   );
+// }
